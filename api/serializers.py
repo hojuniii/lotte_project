@@ -37,7 +37,8 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = ("user_pk", "nickname", "phone",)
         extra_kwargs = {'user': {'required': False}}
 
-        # 접속 유지중인지 확인
+
+# 접속 유지중인지 확인
 class UserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only = True)
 
