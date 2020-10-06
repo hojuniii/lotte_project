@@ -11,6 +11,11 @@ from .models import Profile
 def HelloAPI(request):
     return Response("hello world!")
 
+'''
+@RegistrationAPI 
+POST    api/auth/register
+body - key: username, password
+'''
 class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
 
@@ -30,7 +35,11 @@ class RegistrationAPI(generics.GenericAPIView):
             }
         )
 
-
+'''
+@LoginAPI 
+POST    api/auth/login
+body - key: username, password
+'''
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginUserSerializer
 
@@ -48,11 +57,13 @@ class LoginAPI(generics.GenericAPIView):
             }
         )
 
-
 '''
-@UserAPI
+@UserAPI 
+GET    api/auth/user
+header - key: Authorization     value: Token e1d2ea7215c6a422ee9ced59d3abffe4f3b88d2fef50a32116a5673aaf28fe2e(토큰값)
+
  permission_classes = [permissions.IsAuthenticated] 이 코드로 인해
- post로 요청을 보낼 때 인증된 토큰이 없으면 오류를 보낸다! 즉 인증(로그인)된 회원만 UserAPI(로그인된 유저 조회) 기능에 접근 가능!
+ post로 요청을 보낼 때 인증된 토큰이 없으면 오류를 보낸다! 즉 인증(로그인)된 회원만 UserAPI(로그인된 유저 조회) 기능에 접근 가능
  
  밑은 permision 옵션들
     AllowAny (디폴트 전역 설정) : 인증 여부에 상관없이 뷰 호출을 허용
