@@ -19,13 +19,6 @@ class CreateUserSerializer(serializers.ModelSerializer):
         return user
 
 
-# 접속 유지중인지 확인
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ("id", "username")
-
-
 # 로그인
 class LoginUserSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -37,10 +30,18 @@ class LoginUserSerializer(serializers.Serializer):
             return user
         raise serializers.ValidationError("아이디 혹은 비밀번호가 일치하지 않습니다")
 
-
 # 기본적으로 프로필 정보 조회에 필요한 프로필 ModelSerializer
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = ("user_pk", "nickname", "phone",)
         extra_kwargs = {'user': {'required': False}}
+
+        # 접속 유지중인지 확인
+class UserSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(read_only = True)
+
+    class Meta:
+        model = User
+        fields = ("id", "username", "profile")
+
