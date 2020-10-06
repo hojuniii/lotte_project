@@ -12,7 +12,6 @@ class Profile(models.Model):
     nickname = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=200, blank=True)
 
-
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
