@@ -20,18 +20,31 @@ class RegistrationAPI(generics.GenericAPIView):
     serializer_class = CreateUserSerializer
 
     def post(self, request, *args, **kwargs):
-        if len(request.data["username"]) < 6 or len(request.data["password"]) < 4:
-            body = {"message": "short field"}
-            return Response(body, status=status.HTTP_400_BAD_REQUEST)
+        if len(request.data["username"]) != 11:
+            body = {
+                        "status" : "400", 
+                        "message": "정확한 휴대폰 번호 11자리를 입력해주세요"
+                    }
+            return Response(body)
+            
+        elif len(request.data["password"]) < 4:
+            body = {
+                        "status" : "400",
+                        "message": "비밀번호를 4자리 이상 입력해주세요"
+                    }
+            return Response(body)
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         return Response(
             {
+                "status" : "200",
+                'message' : '회원가입에 성공하였습니다',
                 "user": UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                "token": AuthToken.objects.create(user)[1],
+                # "token": AuthToken.objects.create(user)[1],
             }
         )
 
