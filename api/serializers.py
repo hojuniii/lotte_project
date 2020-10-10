@@ -28,7 +28,7 @@ class LoginUserSerializer(serializers.Serializer):
         user = authenticate(**data)
         if user and user.is_active:
             return user
-        raise serializers.ValidationError("아이디 혹은 비밀번호가 일치하지 않습니다")
+        raise serializers.ValidationError("아이디 혹은 비밀번호가 일치하지 않습니다",code=401)
 
 # 기본적으로 프로필 정보 조회에 필요한 프로필 ModelSerializer
 class ProfileSerializer(serializers.ModelSerializer):
