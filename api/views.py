@@ -16,7 +16,7 @@ def HelloAPI(request):
 POST    api/auth/register
 body - key: username, password
 '''
-class RegistrationAPI(generics.GenericAPIView):
+class RegistrationAPI(generics.GenericAPIView): #회원가입 post 응답
     serializer_class = CreateUserSerializer
 
     def post(self, request, *args, **kwargs):
@@ -102,14 +102,17 @@ header - key: Authorization     value: Token e1d2ea7215c6a422ee9ced59d3abffe4f3b
     DjangoModelPermissionsOrAnonReadOnly : DjangoModelPermissions와 유사, 비인증 요청에게는 읽기만 허용
     DjangoObjectPermissons : 비인증 요청은 거부, 인증된 요청은 Object에 대한 권한 체크 수행
 '''
-class UserAPI(generics.RetrieveAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+class UserAPI(generics.RetrieveAPIView): 
+    permission_classes = [permissions.IsAuthenticated] #토큰 있는지 판별
     serializer_class = UserSerializer
 
     def get_object(self):
-        return self.request.user
+        return self.request.user # 유저 정보 json 리턴
 
 class ProfileUpdateAPI(generics.UpdateAPIView):
+    permission_classes = [permissions.IsAuthenticated] #토큰 있는지 판별
+    
     lookup_field = "user_pk"
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+

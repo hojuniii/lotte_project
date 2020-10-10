@@ -9,7 +9,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_pk = models.IntegerField(blank=True)
     nickname = models.CharField(max_length=200, blank=True)
-    phone = models.CharField(max_length=200, blank=True)
+    #phone = models.CharField(max_length=200, blank=True)
+    profile_image = models.ImageField(upload_to='images/', blank=True, null=True)
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
