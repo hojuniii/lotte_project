@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롯데가온</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{% static 'script.js' %}" type="text/javascript"></script>
+    <link rel="shortcut icon" href="../static/img/logo.ico"/>
+</head>
+<body>
+    <nav>
+        <div id="nav_container">
+            <a href="{%url 'home'%}"><img src="{% static 'img/mainLogo.png' %}"></a>
+            <a href="{%url 'home'%}" class="nav-button">서비스</a>
+            <a href="{%url 'place'%}" class="nav-button">가능지역</a>
+            <a href="{%url 'members'%}" class="nav-button">구성원</a>
+            <a href = "#" class="nav-button">회원가입</a>
+            <a href = "#" class="nav-button">로그인</a>
+        </div>
+    </nav> 
+    
+<section>
+
+{% block content %}
+{% endblock %}
+
+</section>
+<footer>
+    <div class="footer">
+        <div class="footerInfo1">
+        </div>
+        <div class="footerInfo2">
+            <img src="{% static 'img/footerLogo.png' %}">
+            <div>
+                서울시 중구 통일로 10(연세 세브란스 빌딩) 대표자 : 박찬복 택배고객센터 1588-2121 <br>
+                사업자등록번호 : 102-81-23012 통신판매신고 : 제2017-서울중구-0433호 <br><br>
+                <span>COPYRIGHT © 2019 LOTTE GLOBAL LOGISTICS CO,.LTD ALL RIGHTS RESERVED.</span>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+<a href="#" class="top"><div><img src="{% static 'img/direction.png' %}"></div></a>
