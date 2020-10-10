@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'knox',
     'corsheaders',
+    'gaonweb',
 ]
 
 REST_FRAMEWORK = {
@@ -153,3 +154,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+STATIC_DIR = [os.path.join(BASE_DIR, 'gaonweb', 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
