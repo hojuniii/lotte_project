@@ -2,9 +2,10 @@ from rest_framework import viewsets, permissions, generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
+from rest_framework.generics import CreateAPIView, ListAPIView
 from knox.models import AuthToken
-from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer, ProfileSerializer
-from .models import Profile
+from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer, ProfileSerializer, BoxSerializer, ServicePlaceSerializer
+from .models import Profile, Box, Service_Place
 
 # Create your views here.
 @api_view(["GET"])
@@ -109,10 +110,33 @@ class UserAPI(generics.RetrieveAPIView):
     def get_object(self):
         return self.request.user # 유저 정보 json 리턴
 
+
+#api/auth/profile/유저번호pk/update
 class ProfileUpdateAPI(generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated] #토큰 있는지 판별
     
     lookup_field = "user_pk"
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+
+#api/auth/box
+class Box_create(CreateAPIView):
+    queryset = Box.objects.all()
+    serializer_class = BoxSerializer
+
+class Box_view(ListAPIView):
+    queryset = Box.objects.all()
+    serializer_class = BoxSerializer
+
+
+class Box_update(generics.UpdateAPIView):
+    lookup_field = "box_number"
+
+    queryset = Box.objects.all()
+    serializer_class = BoxSerializer
+
+
+class Service_Place_create(CreateAPIView):
+    queryset = Service_Place.objects.all()
+    serializer_class = ServicePlaceSerializer
 

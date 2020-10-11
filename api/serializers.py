@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework import viewsets, permissions, generics, status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from .models import Profile
+from .models import Profile, Box, Service_Place
 
 # 회원가입
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -11,6 +11,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ("id", "username", "password")
         extra_kwargs = {"password": {"write_only": True}}
+
 
     def create(self, validated_data):
         user = User.objects.create_user(
@@ -34,7 +35,7 @@ class LoginUserSerializer(serializers.Serializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ("user_pk", "nickname", "profile_image")
+        fields = ("user_pk", "nickname", "profile_image", "service_place")
         extra_kwargs = {'user': {'required': False}}
 
 
@@ -46,3 +47,14 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ("id", "username", "profile")
 
+
+class BoxSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Box
+        fields = '__all__'
+
+    
+class ServicePlaceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Service_Place
+        fields = ("id", "username", "profile")
