@@ -5,6 +5,7 @@
     <title>롯데가온</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{% static 'script.js' %}" type="text/javascript"></script>
     <link rel="shortcut icon" href="../static/img/logo.ico"/>
@@ -16,8 +17,12 @@
             <a href="{%url 'home'%}" class="nav-button">서비스</a>
             <a href="{%url 'place'%}" class="nav-button">가능지역</a>
             <a href="{%url 'members'%}" class="nav-button">구성원</a>
-            <a href = "#" class="nav-button">회원가입</a>
-            <a href = "#" class="nav-button">로그인</a>
+            {% if user.is_authenticated %}
+            <a href = "{%url 'logout_view'%}" class="nav-button-r">로그아웃</a>
+            {% else %}
+            <a href = "{%url 'signup'%}" class="nav-button-r">회원가입</a>
+            <a href = "{%url 'login'%}" class="nav-button-r">로그인</a>
+            {% endif %}
         </div>
     </nav> 
     
