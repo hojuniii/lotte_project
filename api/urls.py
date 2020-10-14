@@ -12,7 +12,7 @@ urlpatterns = [
     path("auth/profile/<int:user_pk>/update", ProfileUpdateAPI.as_view()),
     path('auth/logout', knox_views.LogoutView.as_view(), name='knox_logout'),
     path("auth/newbox", Box_create.as_view()),
-    path("auth/boxs", Box_view.as_view()),    
+    path("auth/boxs/<int:user_pk>", Box_view.as_view()),    
     path("auth/box/<int:box_number>/update", Box_update.as_view()),
     path("auth/newplace", Service_Place_create.as_view()),
     path("auth/box/<int:box_number>/check", Box_check.as_view()),

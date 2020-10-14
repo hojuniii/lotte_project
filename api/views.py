@@ -127,6 +127,10 @@ class Box_create(CreateAPIView):
 class Box_view(ListAPIView):
     queryset = Box.objects.all()
     serializer_class = BoxSerializer
+    lookup_field = "user_pk"
+    
+    def get_queryset(self):
+        return Box.objects.filter(user=self.kwargs["user_pk"])
 
 
 class Box_update(generics.UpdateAPIView):
