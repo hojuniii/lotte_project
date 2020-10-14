@@ -2,10 +2,11 @@ from rest_framework import viewsets, permissions, generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
-from rest_framework.generics import CreateAPIView, ListAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 from knox.models import AuthToken
 from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer, ProfileSerializer, BoxSerializer, ServicePlaceSerializer
 from .models import Profile, Box, Service_Place
+
 
 # Create your views here.
 @api_view(["GET"])
@@ -138,3 +139,9 @@ class Box_update(generics.UpdateAPIView):
 class Service_Place_create(CreateAPIView):
     queryset = Service_Place.objects.all()
     serializer_class = ServicePlaceSerializer
+
+class Box_check(RetrieveAPIView):
+    lookup_field = "box_number"
+
+    queryset = Box.objects.all()
+    serializer_class = BoxSerializer
