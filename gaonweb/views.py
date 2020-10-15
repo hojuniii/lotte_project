@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
-
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def home(request):
@@ -11,7 +11,8 @@ def place(request):
 def members(request):
     return render(request,'members.html')
 
-def login(request):
+@csrf_exempt
+def signin(request):
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -22,7 +23,8 @@ def login(request):
             return redirect('home')
         else :
             return HttpResponse("로그인 실패. 다시 시도해보세요")
-    return render(request,'login.html')
+    return render(request,'signin.html')
+
 
 def signup(request):
     return render(request,'signup.html')
