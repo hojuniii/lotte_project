@@ -1,3 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<br>
+{% for Service_Place in service_places %}
+{{Service_Place.valid_place}}
+<br>
+{% endfor %}
+<br>
 {% endblock %}

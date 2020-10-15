@@ -1,5 +1,4 @@
-lotte_project/myvenv/
-myvenv/
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
@@ -149,3 +148,5 @@ dmypy.json
 .pytype/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+lotte_project/myvenv/
+myvenv/

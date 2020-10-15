@@ -16,12 +16,13 @@
             <a href="{%url 'home'%}"><img src="{% static 'img/mainLogo.png' %}"></a>
             <a href="{%url 'home'%}" class="nav-button">서비스</a>
             <a href="{%url 'place'%}" class="nav-button">가능지역</a>
-            <a href="{%url 'members'%}" class="nav-button">구성원</a>
+            <a href="{%url 'members' '수원'%}" class="nav-button">구성원</a>
             {% if user.is_authenticated %}
             <a href = "{%url 'logout_view'%}" class="nav-button-r">로그아웃</a>
+            <a href = "{%url 'mypage'%}" class="nav-button-r">마이페이지</a>
             {% else %}
             <a href = "{%url 'signup'%}" class="nav-button-r">회원가입</a>
-            <a href = "{%url 'login'%}" class="nav-button-r">로그인</a>
+            <a href = "{%url 'signin'%}" class="nav-button-r">로그인</a>
             {% endif %}
         </div>
     </nav> 

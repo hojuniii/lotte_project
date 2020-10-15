@@ -7,13 +7,12 @@ from django.dispatch import receiver
 
 class Service_Place(models.Model):
     valid_place = models.CharField(max_length=200, blank=True)
-
     def __str__(self):
         return self.valid_place
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user_pk = models.IntegerField(blank=True)
+    user_pk = models.IntegerField(blank=True, null=True)
     nickname = models.CharField(max_length=200, blank=True)
     #phone = models.CharField(max_length=200, blank=True)
     profile_image = models.ImageField(upload_to='images/', blank=True, null=True)
