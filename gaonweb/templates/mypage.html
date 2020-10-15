@@ -1,3 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+    <br>
+    {% for Box in Boxes %}
+    {{Box.box_number}}
+    <br>
+    {% endfor %}
 {% endblock %}

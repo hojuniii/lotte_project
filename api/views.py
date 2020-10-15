@@ -135,7 +135,7 @@ class Box_view(ListAPIView):
 
 class Box_update(generics.UpdateAPIView):
     lookup_field = "box_number"
-
+    
     queryset = Box.objects.all()
     serializer_class = BoxSerializer
 
