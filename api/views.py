@@ -4,8 +4,8 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView
 from knox.models import AuthToken
-from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer, ProfileSerializer, BoxSerializer, ServicePlaceSerializer
-from .models import Profile, Box, Service_Place
+from .serializers import CreateUserSerializer, UserSerializer, LoginUserSerializer, ProfileSerializer, BoxSerializer
+from .models import Profile, Box
 
 
 # Create your views here.
@@ -46,7 +46,7 @@ class RegistrationAPI(generics.GenericAPIView): #회원가입 post 응답
                 "user": UserSerializer(
                     user, context=self.get_serializer_context()
                 ).data,
-                # "token": AuthToken.objects.create(user)[1],
+                "token": AuthToken.objects.create(user)[1],
             }
         )
 
@@ -140,9 +140,9 @@ class Box_update(generics.UpdateAPIView):
     serializer_class = BoxSerializer
 
 
-class Service_Place_create(CreateAPIView):
-    queryset = Service_Place.objects.all()
-    serializer_class = ServicePlaceSerializer
+# class Service_Place_create(CreateAPIView):
+#     queryset = Service_Place.objects.all()
+#     serializer_class = ServicePlaceSerializer
 
 class Box_check(RetrieveAPIView):
     lookup_field = "box_number"

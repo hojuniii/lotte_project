@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import HelloAPI, RegistrationAPI, LoginAPI, UserAPI, ProfileUpdateAPI, Box_create, Box_view, Box_update, Service_Place_create, Box_check
+from .views import HelloAPI, RegistrationAPI, LoginAPI, UserAPI, ProfileUpdateAPI, Box_create, Box_view, Box_update, Box_check
 from knox import views as knox_views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,6 +14,6 @@ urlpatterns = [
     path("auth/newbox", Box_create.as_view()),
     path("auth/boxs/<int:user_pk>", Box_view.as_view()),    
     path("auth/box/<int:box_number>/update", Box_update.as_view()),
-    path("auth/newplace", Service_Place_create.as_view()),
+    # path("auth/newplace", Service_Place_create.as_view()),
     path("auth/box/<int:box_number>/check", Box_check.as_view()),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,58 +1,10 @@
-# from django.shortcuts import render,redirect
-# from django.contrib.auth import authenticate, login, logout
-# from api.models import Service_Place, Box
-# from django.http import HttpResponse
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.models import User
-
-# # Create your views here.
-# def home(request):
-#     return render(request,'home.html')
-
-# def place(request):
-#     service_places = Service_Place.objects.all().order_by('valid_place')
-#     return render(request,'place.html',{'service_places':service_places})
-# def members(request):
-#     return render(request,'members.html')
-
-# def signin(request):
-#     if request.method == "POST":
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = authenticate(username=username, password=password)
-#         if user is not None:
-#             print("인증성공")
-#             login(request, user)
-#             return redirect('home')
-#         else :
-#             return HttpResponse("로그인 실패. 다시 시도해보세요")
-#     return render(request,'signin.html')
-
-# def signup(request):
-#     if request.method=="POST":
-#         print(request.POST)
-#         username= request.POST["username"]
-#         password= request.POST["password"]
-#         user = User.objects.create_user(username,"",password)
-#         login(request, user)
-#         return redirect("home")
-#     return render(request, 'signup.html')
-
-# @login_required
-# def mypage(request):
-#     Boxes = Box.objects.filter(user=request.user).order_by('-id')
-#     return render(request,'mypage.html',{'Boxes':Boxes})
-
-# def logout_view(request):
-#     logout(request)
-#     return redirect('home')
-
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
-from api.models import Service_Place, Box, Profile
+from api.models import Box, Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from PIL import Image
 
 # Create your views here.
 def home(request):
@@ -63,8 +15,7 @@ def place(request):
     return render(request,'place.html',{'service_places':service_places})
 
 def members(request,place):
-    Place = get_object_or_404(Service_Place,valid_place=place)
-    profiles = Profile.objects.filter(service_place=Place).order_by('nickname')
+    profiles = Profile.objects.filter(service_place=place).order_by('nickname')
     return render(request,'members.html',{'profiles':profiles})
 
 def members_search(request):
@@ -91,37 +42,17 @@ def signup(request):
         username= request.POST["username"]
         password= request.POST["password"]
         user = User.objects.create_user(username,"",password)
-       
-        # user.save()
-        # profile = Profile()
-        # profile.user=user
-        # profile.user_pk=user.id
-        # profile.nickname = request.POST['nickname']
-        # profile.profile_image =request.POST['profile_image']
-        # place=request.POST['service_place']
-        # service_place = Service_Place()
-        # service_place.valid_place = place
-        # service_place.save()
-        # profile.service_place = service_place
-        # profile.save()
-
-
-        # profile = Profile.objects.create(user=user)
-        # profile.nickname =request.POST['nickname']
-        # profile.profile_image =request.POST['profile_image']
-        # profile.service_place =request.POST['service_place']
-        # profile.save()
-
-
         profile = get_object_or_404(Profile,user_pk=user.id)
+
+        # fileName = user.id + '_profile.png'
+
+        profile.user = user
         profile.nickname =request.POST['nickname']
-        profile.profile_image =request.POST['profile_image']
-        # place=request.POST['service_place']
-        # service_place = Service_Place()
-        # service_place.valid_place = place
-        # service_place.save()
-        # profile.service_place =service_place
-        profile.save()
+  
+        # image.save(str(user.id) + '_profile.png')
+        profile.profile_image =request.FILES['profile_image']
+        profile.service_place=request.POST['service_place']
+        profile.user_pk=user.id
 
         user.save()
        

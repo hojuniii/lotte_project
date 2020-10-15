@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework import viewsets, permissions, generics, status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from .models import Profile, Box, Service_Place
+from .models import Profile, Box
 
 # 회원가입
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -53,7 +53,7 @@ class BoxSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     
-class ServicePlaceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Service_Place
-        fields = '__all__'
+# class ServicePlaceSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Service_Place
+#         fields = '__all__'

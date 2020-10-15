@@ -8,7 +8,7 @@
 {% else %}
 <section class="signup">
     <img src="{% static 'img/logo.png' %}" alt="logo">
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input name="username" type="text" placeholder="ID"><br>
         <input name="password" type="password" placeholder="PASSWORD"><br>

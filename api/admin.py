@@ -4,7 +4,7 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-from .models import Profile, Box, Service_Place
+from .models import Profile, Box
 
 
 class ProfileInline(admin.StackedInline):
@@ -18,6 +18,7 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.unregister(User)
+admin.site.register(Profile)
 admin.site.register(User, UserAdmin)
 admin.site.register(Box)
-admin.site.register(Service_Place)
+# admin.site.register(Service_Place)
