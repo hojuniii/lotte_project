@@ -45,7 +45,7 @@ def signup(request):
         profile = get_object_or_404(Profile,user_pk=user.id)
 
         # fileName = user.id + '_profile.png'
-
+        
         profile.user = user
         profile.nickname =request.POST['nickname']
   
