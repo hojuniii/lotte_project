@@ -11,8 +11,7 @@ def home(request):
     return render(request,'home.html')
 
 def place(request):
-    service_places = Service_Place.objects.all().order_by('valid_place')
-    return render(request,'place.html',{'service_places':service_places})
+    return render(request,'place.html')
 
 def members(request,place):
     profiles = Profile.objects.filter(service_place=place).order_by('nickname')
@@ -20,8 +19,8 @@ def members(request,place):
 
 def members_search(request):
     data = request.POST.get('data')
-    profiles = Profile.objects.filter(name__icontains=data).order_by('nickname')
-    return render(request,'members/search.html',{'profiles':profiles})
+    profiles = Profile.objects.filter(nickname__icontains=data).order_by('nickname')
+    return render(request,'membersearch.html',{'profiles':profiles})
 
 def signin(request):
     if request.method == "POST":
@@ -50,7 +49,10 @@ def signup(request):
         profile.nickname =request.POST['nickname']
   
         # image.save(str(user.id) + '_profile.png')
-        profile.profile_image =request.FILES['profile_image']
+        if 'profile_image' not in request.FILES:
+            pass
+        else:
+            profile.profile_image =request.FILES['profile_image']
         profile.service_place=request.POST['service_place']
         profile.user_pk=user.id
 
@@ -62,8 +64,25 @@ def signup(request):
 
 @login_required
 def mypage(request):
+    profile = get_object_or_404(Profile,user = request.user)
     Boxes = Box.objects.filter(user=request.user).order_by('-id')
-    return render(request,'mypage.html',{'Boxes':Boxes})
+    return render(request,'mypage.html',{'Boxes':Boxes,'profile':profile})
+
+def setprofile(request):
+    profile = get_object_or_404(Profile,user = request.user)
+    return render(request,'updateprofile.html',{'profile':profile})
+
+def saveprofile(request):
+    if request.method == "POST":
+        profile = get_object_or_404(Profile,user = request.user)
+        profile.nickname = request.POST['nickname']
+        profile.service_place=request.POST['service_place']
+        if 'profile_image' not in request.FILES:
+            profile.save()
+        else:
+            profile.profile_image =request.FILES['profile_image']
+            profile.save()
+    return redirect("mypage")
 
 def logout_view(request):
     logout(request)

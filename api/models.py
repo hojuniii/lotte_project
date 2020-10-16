@@ -10,7 +10,7 @@ class Profile(models.Model):
     user_pk = models.IntegerField(blank=True)
     nickname = models.CharField(max_length=200, blank=True)
     #phone = models.CharField(max_length=200, blank=True)
-    profile_image = models.ImageField(upload_to='images/', blank=True, null=True,)
+    profile_image = models.ImageField(default='images/default.png',upload_to='images/', blank=True, null=True)
     service_place = models.CharField(max_length=200, blank=True)
 
 @receiver(post_save, sender=User)

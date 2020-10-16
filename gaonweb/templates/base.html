@@ -1,41 +1,87 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>롯데가온</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-members.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-mypage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-sign.css' %}">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{% static 'script.js' %}" type="text/javascript"></script>
     <link rel="shortcut icon" href="../static/img/logo.ico"/>
 </head>
+
 <body>
+    <div class="background-nav">
+        <div class="background-nav-link">
+            <a href="{%url 'home'%}">서비스</a><br><br>
+            <a href="{%url 'place'%}">가능지역</a><br><br>
+            <a href="{%url 'members' '수원'%}">구성원</a><br><br><br>
+            {% if user.is_authenticated %}
+            <a href = "{%url 'logout_view'%}">로그아웃</a><br><br>
+            <a href = "{%url 'mypage'%}">마이페이지</a><br><br>
+            {% else %}
+            <a href = "{%url 'signup'%}">회원가입</a><br><br>
+            <a href = "{%url 'signin'%}">로그인</a>
+            {% endif %}
+        </div>
+    </div>
     <nav>
         <div id="nav_container">
             <a href="{%url 'home'%}"><img src="{% static 'img/mainLogo.png' %}"></a>
-            <a href="{%url 'home'%}" class="nav-button">서비스</a>
-            <a href="{%url 'place'%}" class="nav-button">가능지역</a>
-            <a href="{%url 'members' '수원'%}" class="nav-button">구성원</a>
+            <a href="{%url 'home'%}" class="nav-link">서비스</a>
+            <a href="{%url 'place'%}" class="nav-link">가능지역</a>
+            <a href="{%url 'members' '수원'%}" class="nav-link">구성원</a>
             {% if user.is_authenticated %}
-            <a href = "{%url 'logout_view'%}" class="nav-button-r">로그아웃</a>
-            <a href = "{%url 'mypage'%}" class="nav-button-r">마이페이지</a>
+            <a href = "{%url 'logout_view'%}" class="nav-link">로그아웃</a>
+            <a href = "{%url 'mypage'%}" class="nav-link">마이페이지</a>
             {% else %}
-            <a href = "{%url 'signup'%}" class="nav-button-r">회원가입</a>
-            <a href = "{%url 'signin'%}" class="nav-button-r">로그인</a>
+            <a href = "{%url 'signup'%}" class="nav-link">회원가입</a>
+            <a href = "{%url 'signin'%}" class="nav-link">로그인</a>
             {% endif %}
         </div>
     </nav> 
     
-<section>
+
+
+    
+    <section>
 
 {% block content %}
 {% endblock %}
 
 </section>
 <footer>
-    <div class="footer">
+    <div class="footer" style="width:2000px;">
         <div class="footerInfo1">
+            <a href="https://www.lotteglogis.com/home/policy/privacy" target="_blank"><strong>개인정보처리방침</strong></a>
+            <a href="https://www.lotteglogis.com/home/policy/video" target="_blank">영상정보기기운영/관리방침</a>
+            <a href="https://www.lotteglogis.com/home/policy/standard" target="_blank">택배표준약관</a>
+            <a href="https://www.lotteglogis.com/home/policy/safetyManagement" target="_blank">안전보건방침</a>
+            <a href="https://www.lotteglogis.com/home/policy/emailReject" target="_blank">이메일주소무단수집거부</a>
+            <div class="footerInfo1-div1"> 
+                패밀리 사이트 <span class="footerInfo1-div-arrow1">▲</span>
+                <div class="dropdown-content1">
+                    <a href="#">롯데 글로벌로지스</a>
+                    <a href="#">롯데 멤버스</a>
+                    <a href="#">롯데 GFR</a>
+                    <a href="#">FRL 코리아</a>
+                </div>
+            </div>
+            <div class="footerInfo1-div2"> 
+                부가 서비스 <span class="footerInfo1-div-arrow2">▲</span>
+                <div class="dropdown-content2">
+                    <a href="http://tos.lottegl.com/if/user_check.jsp">의류B2B 설문조사</a>
+                    <a href="https://tos.lottegl.com/if/b2b/index.jsp">의류반품/점간이동</a>
+                    <a href="http://www.tradesign.net/ra/lotteglogis">공인인증센터</a>
+                    <a href="https://truck.llogis.com/portal/index.lgl">화물정보망</a>
+                </div>
+            </div>
         </div>
         <div class="footerInfo2">
             <img src="{% static 'img/footerLogo.png' %}">
@@ -49,4 +95,11 @@
 </footer>
 </body>
 </html>
+<a href="#" class="nav-button">
+    <div class="nav-button-box">
+        <div class="nav-button-slash1"></div>
+        <div class="nav-button-slash2"></div>
+        <div class="nav-button-slash3"></div>
+    </div>
+</a>
 <a href="#" class="top"><div><img src="{% static 'img/direction.png' %}"></div></a>

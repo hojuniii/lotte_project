@@ -4,5 +4,9 @@
     {% for Profile in profiles %}
     {{Profile.nickname}}
     <br>
+    {{Profile.service_place}}
+    <br>
+    <img src="{{Profile.profile_image.url}}" width="50">
+    <br><br>
     {% endfor %}
 {% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'saveprofile' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input name="nickname" type="text" placeholder="닉네임" value="{{profile.nickname}}"><br>
+    <input type="file" class="form-control" id="profile_image" name="profile_image" multiple><br>
+    <select name="service_place" id="status">
+        <option value="수원">수원</option>
+        <option value="서울">서울</option>
+        <option value="인천" selected>인천</option>
+        <option value="광주">광주</option>
+      </select>
+    <br>
+      <input type="submit" value="수정하기">
+</form>
+{% endblock %}

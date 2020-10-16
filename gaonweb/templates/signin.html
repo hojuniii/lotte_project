@@ -12,10 +12,10 @@
         {% csrf_token %}
         <input name="username" type="text" placeholder="ID"><br>
         <input name="password" type="password" placeholder="PASSWORD"><br>
-        <input style="cursor:pointer;" type="submit" value="LOGIN">
+        <input type="submit" value="LOGIN">
     </form>
 
-    <div>아직 멍팟의 회원이 아니신가요? 함께해요 멍!</div>  
+    <div>아직 롯데 가온의 회원이 아니신가요? 함께해요!</div>  
     <a href="{%url 'signup'%}">회원가입하러가기</a>
 </section>
 {% endif %}
