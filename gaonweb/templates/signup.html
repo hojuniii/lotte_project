@@ -6,24 +6,26 @@
 로그인 성공!<br>
 {{user.username}}님 환영합니다.
 {% else %}
-<section class="signup">
+<section class="login">
     <img src="{% static 'img/logo.png' %}" alt="logo">
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input name="username" type="text" placeholder="ID"><br>
         <input name="password" type="password" placeholder="PASSWORD"><br>
         <br>
-        <input name="nickname" type="text" placeholder="닉네임"><br>
-        <input type="file" class="form-control" id="profile_image" name="profile_image" multiple><br>
-        <!-- <input name="service_place" type="text" placeholder="지역"><br> -->
         <select name="service_place" id="status">
             <option value="수원">수원</option>
             <option value="서울">서울</option>
             <option value="인천">인천</option>
             <option value="광주">광주</option>
-          </select>
+        </select><br>
+        <input name="nickname" type="text" placeholder="닉네임"><br>
+        <input type="file" class="form-control" id="profile_image" name="profile_image" multiple><br>
         <input type="submit" value="회원가입">
     </form>
+
+    <div>이미 아이디가 있으신가요?</div>  
+    <a href="{% url 'signin' %}">로그인하러가기</a>
 </section>
 {% endif %}
 {% endblock %}

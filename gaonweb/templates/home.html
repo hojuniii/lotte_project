@@ -12,8 +12,8 @@
 <div class="background">
 </div>
 <div class="content 1" style="height: 650px; top:710px;">
-    <div class = "contentImg1" style="width:40%; float:left; display:none;">
-        <img src="{% static 'img/money.png' %}" width=100%;>
+    <div class = "contentImg1">
+        <img src="{% static 'img/money.png' %}">
     </div>
     <div class="text-container text1" style="width:60%; float:left; display:none;">
         <div class="text" style="margin:20px 40px;">
@@ -24,18 +24,21 @@
         </div>
     </div>
 </div>
-<div class="content 2" style="height: 650px; top:1380px;">
+
+<!-- 2번째 내용 -->
+<div class="content 2" style="height: 600px; top:1380px;">
     <div>
         <div class="text-container text2" style="width:40%; float:left; display:none;">
             <div class="text" style="margin:20px 40px;">
-                <span class="text-fitter1" style="font-size: 18px; color:#ec1d25; font-weight: 500;">Service </span><br>
+                <span class="text-fitter1" style="font-size: 18px; color:#ec1d25; font-weight: 500;">SERVICE </span><br>
                 <span class="text-fitter1" style="font-size: 20px; font-weight: 600;">서비스</span>
                 <span class="text-fitter2" style="font-size: 15px; font-weight: 500;"><br><br>시니어 일자리 창출 도모를 위한<br><br></span>
                 <span class="text-fitter2" style="font-size: 15px; font-weight: 300;">‘모두를 위한 지속적·포용적·지속 가능한'<br></span>
             </div>
         </div>
         <div style="width:60%; float:left; display:none;" class="contentImg2">
-            <iframe width=80% style="float:right;" height="360" src="https://www.youtube.com/embed/Pai27UhYQeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width=88% style="display:block; margin:0 auto;" height="390" src="https://www.youtube.com/embed/Pai27UhYQeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         </div>
     </div>
     <div style="display:none;" class="text2">
@@ -61,21 +64,39 @@
         </div>
     </div>
 </div>
-<div class="content 3" style="height: 500px; top:2050px">
+
+ <!-- 3번째 내용 -->
+ <div class="content 3" style="height: 500px; top:2050px">
     <div>
-        
     </div>
     <div class="text-container" style="width:100%;">
         <div class="text text3" style="margin:20px 40px; display:none;">
             <span class="text-fitter1" style="font-size: 20px; color:#000000; font-weight: 400;">OUR<br> 
                 MEMBER</span><br>
         </div>
-        <div style="background-color: #e05247; padding:3px; width:90%; margin:0px auto;"></div>
+        <div style="background-color: #e05247; padding:3px; width:95%; margin:0px auto; margin-top:20px;"></div>
+        <div class="content3-member-container">
+            <div style="left:40px;">안녕</div>
+            <div style="left:500px;">안녕</div>
+            <div style="left:960px;">안녕</div>
+            <div style="left:1420px;">안녕</div>
+            <div style="left:1880px;">안녕</div>
+            <div style="left:2340px;">안녕</div>
+        </div>
+        <div class="content3-button-container">
+            <div style="position:absolute; top:5%; left:2%;">
+                <a href="#" class="content3-button-l"><strong>〈</strong></a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="#" class="content3-button-r"><strong>〉</strong></a>
+            </div>
+            <a class="content3-link" href="members.html">
+                <div>모든 구성원 둘러보기</div>
+            </a>
+        </div>
     </div>
 </div>
 
-
-
+<!-- 핸드폰 둥둥 -->
 <div class="img2_container">
     <div class="img2_text">
         함께 가는 친구, <span style="color:#ec1d25">롯데 가온</span>
@@ -86,13 +107,14 @@
     <div class="img2_background">
     </div>
 </div>
+
 <div class="img3_container">
     <div class="img3_text" style="display:none;">
         지금, <span>가온앱</span>을 다운받아보세요
     </div>
     <div class="img3_image">
-        <a href="#"><img src="{% static 'img/appstore.png' %}" style="width:200px; padding-bottom:6px;"></a>
-        <a href="#"><img src="{% static 'img/playstore.png' %}" style="width:215px;"></a>
+        <a href="#"><img src="{% static 'img/appstore.png' %}" style="width:190px; padding-bottom:7px;"></a>
+        <a href="#"><img src="{% static 'img/playstore.png' %}" style="width:205px;"></a>
     </div>
 </div>
 </section>

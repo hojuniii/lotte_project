@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-<br>
-{% for Service_Place in service_places %}
-{{Service_Place.valid_place}}
-<br>
-{% endfor %}
-<br>
+{% load static %}
+<div class="members_container">
+    <div class="membersImg">
+        <img src="{% static 'img/2.png' %}">
+    </div>
+    <div class="membersImg_text">
+        롯데와 함께 온기를 더하다<br>
+    </div>
+    <div class="search_bar_container">
+        <input type="text" name="search-bar" id="search-bar" placeholder="검색어를 입력해주세요">
+        <input type="button" value="검색" id="search-btn">
+    </div>
+</div>
+
 {% endblock %}
