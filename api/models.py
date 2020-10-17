@@ -31,6 +31,8 @@ class Box(models.Model):
     customer_location = models.CharField(max_length=200, blank=True)
     customer_phonenum = models.CharField(max_length=200, blank=True)
     customer_name = models.CharField(max_length=200, blank=True)
+    started_at = models.DateTimeField(auto_now_add=True)
+    completed_at = models.DateTimeField(auto_now=True)
     STATUS = (
         ("W", "배송 대기"),          #큐알 코드 찍기 전
         ("D", "배송 중"),           #큐알 코드 찍고 도착 전

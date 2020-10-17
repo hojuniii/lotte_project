@@ -43,10 +43,10 @@ html{
 }
 
 .img1_container img {
+    vertical-align: middle;
     width:100%;
     height:570px;
     object-fit: cover;
-    vertical-align: middle;
 }
 .img1_text {
     font-size : 40px;
@@ -171,14 +171,14 @@ html{
 
 
 .img3_container{
-    top:3400px;
+    top:3500px;
     position: absolute;
     width:100%;
-    height: 200px;
+    height: 250px;
 }
 .img3_image{
     transform:translate(-40%,0%);
-    top: 80px;
+    top: 110px;
     left: 50%;
     width: 500px;
     position: absolute;
@@ -200,24 +200,3 @@ html{
 }
 
 
-
-
-.switch{
-    position:fixed; 
-    text-align: center;
-    z-index: 997;
-    width:15px;
-    right:2%; 
-    bottom:50%;
-}
-
-
-.switch div{
-    cursor:pointer;
-    border-radius: 70%;
-    background-color: white;
-    margin-top:10px;
-    width: 9px;
-    height : 9px;
-    border : 1.5px solid #e05247;
-}

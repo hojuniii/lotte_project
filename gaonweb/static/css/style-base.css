@@ -28,7 +28,7 @@ nav img {
 
 nav a:hover{
     text-decoration: none;
-    color: black;
+    color: #e05247;
 }
 
 
@@ -107,16 +107,13 @@ nav a:nth-child(n+5){
 
 
 .footer {
+    margin-top:100px;
     position: absolute;
-    top:3630px;
-    width: 2000px;
+    top:3750px;
+    width: 100%;
 }
 
-.footer img {
-    width:120px;
-    margin:10px 40px 0px 80px;
-    float:left;
-}
+
 
 
 .footerInfo1{
@@ -125,6 +122,7 @@ nav a:nth-child(n+5){
     padding-left:100px;
     border-top: 0.5px solid rgb(201, 201, 201);
     height:20px;
+    width:2000px;
 }
 .footerInfo1 a{
     color:black;
@@ -198,13 +196,19 @@ nav a:nth-child(n+5){
     background-color:white;
     padding: 30px;
     border-top: 0.5px solid rgb(201, 201, 201);
-    height:80px;
+    height:90px;
 }
-.footerInfo2 div{
-    font-size:13px;
-    float:left;
+.footerInfo2_img{
+    display: inline-block;
+    width:120px;
+    margin:10px 40px 20px 80px;
 }
-.footerInfo2 span{
+
+.footerInfo2_font{
+    font-size:14px;
+    display: inline-block;
+}
+.footerInfo2_font span{
     color:gray;
 }
 
@@ -239,3 +243,25 @@ nav a:nth-child(n+5){
     background-color: #e05247;
 }
 
+
+
+.switch{
+    display: none;
+    position:fixed; 
+    text-align: center;
+    z-index: 997;
+    width:15px;
+    right:2%; 
+    bottom:50%;
+}
+
+
+.switch div{
+    cursor:pointer;
+    border-radius: 70%;
+    background-color: white;
+    margin-top:10px;
+    width: 9px;
+    height : 9px;
+    border : 1.5px solid #e05247;
+}

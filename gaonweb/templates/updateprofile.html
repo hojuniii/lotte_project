@@ -1,16 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action="{% url 'saveprofile' %}" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input name="nickname" type="text" placeholder="닉네임" value="{{profile.nickname}}"><br>
-    <input type="file" class="form-control" id="profile_image" name="profile_image" multiple><br>
-    <select name="service_place" id="status">
-        <option value="수원">수원</option>
-        <option value="서울">서울</option>
-        <option value="인천" selected>인천</option>
-        <option value="광주">광주</option>
-      </select>
+{% load static %}
+<div class="now_page" style="display:none;">mypage</div>
+<div class="container">
+    <div class="information-image" class="profile "><img src="{{profile.profile_image.url}}" style="width:100%; height:100%;"></div>
     <br>
-      <input type="submit" value="수정하기">
-</form>
+    <div class="information">
+        <form action="{% url 'saveprofile' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" class="form-control" id="profile_image" name="profile_image" multiple style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:165px;"><br>
+            아이디 : <strong>{{profile.user}}</strong><br>
+            
+            <label for="nickname">이름 : </label>
+            <input id="nickname" name="nickname" type="text" placeholder="닉네임" value="{{profile.nickname}}" style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:95px;"><br>
+            <label for="service_place">지역 : </label>
+            <select name="service_place" id="service_place" style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:100px;">
+                <option value="수원">수원</option>
+                <option value="서울">서울</option>
+                <option value="인천">인천</option>
+                <option value="광주">광주</option>
+            </select>
+            <div id="comp" style="display:none">{{profile.service_place}}</div>
+            <input class="information-button" style="display:block;" type="submit" value="완료">
+            <br>
+        </form>
+    </div>
+    
+    
+</div>
+<div class="container2">
+    <h2>택배 이력</h2><br>
+    {% for Box in Boxes%}
+    <div class="container3">
+        {{forloop.revcounter}} &nbsp;&nbsp;&nbsp;|  
+        &nbsp;&nbsp;&nbsp;운송장번호 : {{Box.box_number}}  &nbsp;&nbsp;&nbsp;|  
+        {% if Box.status == "C" %}
+        &nbsp;&nbsp;&nbsp;배송상태 : 배송완료 
+        &nbsp;&nbsp;&nbsp; | 
+        &nbsp;&nbsp;&nbsp; 완료시간 : {{Box.completed_at|date:'Y년 m월 d일 H시i분'}} 
+        {% else %}
+        &nbsp;&nbsp;&nbsp;배송상태 : 배송중
+        {% endif%}
+    </div>
+    {% endfor %}
+</div>
+
+
+
+    
+    
+    
 {% endblock %}

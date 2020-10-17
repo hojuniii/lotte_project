@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+<div class="now_page" style="display:none;">members</div>
     <br>
     {% for Profile in profiles %}
     {{Profile.nickname}}
