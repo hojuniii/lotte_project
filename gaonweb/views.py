@@ -5,7 +5,7 @@ from api.models import Box, Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from PIL import Image
-
+errorname = ""
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -32,34 +32,44 @@ def signin(request):
             login(request, user)
             return redirect('home')
         else :
-            return HttpResponse("로그인 실패. 다시 시도해보세요")
+            global errorname
+            errorname = "loginerror"
+            return render(request,'error.html',{'errorname':errorname})
     return render(request,'signin.html')
 
 def signup(request):
     if request.method=="POST":
-        print(request.POST)
         username= request.POST["username"]
         password= request.POST["password"]
-        user = User.objects.create_user(username,"",password)
-        profile = get_object_or_404(Profile,user_pk=user.id)
+        uservalid = User.objects.filter(username__icontains=username)
+        valid = True
+        for i in uservalid:
+            if i.username == username:
+                valid=False
+        if valid == True:
+            user = User.objects.create_user(username,"",password)
+            profile = get_object_or_404(Profile,user_pk=user.id)
+            # fileName = user.id + '_profile.png'
+            profile.user = user
+            profile.nickname =request.POST['nickname']
+    
+            # image.save(str(user.id) + '_profile.png')
+            if 'profile_image' not in request.FILES:
+                pass
+            else:
+                profile.profile_image =request.FILES['profile_image']
+            profile.service_place=request.POST['service_place']
+            profile.user_pk=user.id
 
-        # fileName = user.id + '_profile.png'
+            user.save()
         
-        profile.user = user
-        profile.nickname =request.POST['nickname']
-  
-        # image.save(str(user.id) + '_profile.png')
-        if 'profile_image' not in request.FILES:
-            pass
-        else:
-            profile.profile_image =request.FILES['profile_image']
-        profile.service_place=request.POST['service_place']
-        profile.user_pk=user.id
+            login(request, user)
+            return redirect("home")
+        else :
+            global errorname
+            errorname = "signuperror"
+            return render(request,'error.html',{'errorname':errorname})
 
-        user.save()
-       
-        login(request, user)
-        return redirect("home")
     return render(request, 'signup.html')
 
 @login_required

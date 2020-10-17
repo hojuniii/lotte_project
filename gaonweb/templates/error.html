@@ -1,0 +1,13 @@
+{% if errorname == "loginerror" %}
+<script>    
+    alert('아이디와 비밀번호를 확인하세요');
+    
+</script>
+{% else %}
+<script>    
+    alert('이미 있는 아이디 입니다.');
+</script>
+{% endif %}
+<script>
+history.back();
+</script>
