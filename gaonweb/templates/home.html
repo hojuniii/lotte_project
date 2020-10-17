@@ -38,8 +38,9 @@
             </div>
         </div>
         <div style="width:60%; float:left; display:none;" class="contentImg2">
-            <iframe width=88% style="display:block; margin:0 auto;" height="390" src="https://www.youtube.com/embed/Pai27UhYQeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+            <div class="youtube1" style="width:88%; margin:0 auto;">
+                <iframe style="width:100%; display:block; margin:0 auto;" height="390" src="https://www.youtube.com/embed/Pai27UhYQeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
     <div style="display:none;" class="text2">
@@ -77,12 +78,12 @@
         </div>
         <div style="background-color: #e05247; padding:3px; width:95%; margin:0px auto; margin-top:20px;"></div>
         <div class="content3-member-container">
-            <div style="left:40px;">안녕</div>
-            <div style="left:500px;">안녕</div>
-            <div style="left:960px;">안녕</div>
-            <div style="left:1420px;">안녕</div>
-            <div style="left:1880px;">안녕</div>
-            <div style="left:2340px;">안녕</div>
+            <div style="left:40px;">안녕1</div>
+            <div style="left:500px;">안녕2</div>
+            <div style="left:960px;">안녕3</div>
+            <div style="left:1420px;">안녕4</div>
+            <div style="left:1880px;">안녕5</div>
+            <div style="left:2340px;">안녕6</div>
         </div>
         <div class="content3-button-container">
             <div style="position:absolute; top:5%; left:2%;">
@@ -90,7 +91,7 @@
                 &nbsp;&nbsp;&nbsp;
                 <a href="#" class="content3-button-r"><strong>〉</strong></a>
             </div>
-            <a class="content3-link" href="members.html">
+            <a class="content3-link" href="{% url 'members' '수원' %}">
                 <div>모든 구성원 둘러보기</div>
             </a>
         </div>
