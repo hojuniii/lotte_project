@@ -40,6 +40,10 @@
             case 'mypage':
                 $( '.mypage_page' ).css('color', '#ec1d25');
                 $( '.footer' ).css('position', 'static');
+                break;
+            case 'mypage_edit':
+                $( '.mypage_page' ).css('color', '#ec1d25');
+                $( '.footer' ).css('position', 'static');
                 //selected 선택
                 var opcnt = document.getElementById("service_place").options.length;
                 for(i=0; i<opcnt; i++){
