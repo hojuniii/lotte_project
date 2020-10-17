@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+<div class="now_page" style="display:none;">mypage</div>
 <div class="container">
-    <div class="information-image" class="profile "><img src="{{profile.profile_image.url}}" style="width:100%; height:100%;"></div>
+    <div class="information-image" class="profile ">
+        <img src="{{profile.profile_image.url}}">
+    </div>
     <br>
     <div class="information">
         아이디 : <strong>{{profile.user}}</strong><br>
@@ -12,8 +16,18 @@
 </div>
 <div class="container2">
     <h2>택배 이력</h2><br>
-    {% for Box in Boxes %}
-    <div class="container3">5 &nbsp;&nbsp;&nbsp;|  &nbsp;&nbsp;&nbsp;운송장번호 : {{Box.box_number}}  &nbsp;&nbsp;&nbsp;|  &nbsp;&nbsp;&nbsp;배송상태 : 배송완료 &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; 완료날짜 : 2020.10.15 </div>
+    {% for Box in Boxes%}
+    <div class="container3">
+        {{forloop.revcounter}} &nbsp;&nbsp;&nbsp;|  
+        &nbsp;&nbsp;&nbsp;운송장번호 : {{Box.box_number}}  &nbsp;&nbsp;&nbsp;|  
+        {% if Box.status == "C" %}
+        &nbsp;&nbsp;&nbsp;배송상태 : 배송완료 
+        &nbsp;&nbsp;&nbsp; | 
+        &nbsp;&nbsp;&nbsp; 완료시간 : {{Box.completed_at|date:'Y년 m월 d일 H시i분'}} 
+        {% else %}
+        &nbsp;&nbsp;&nbsp;배송상태 : 배송중
+        {% endif%}
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

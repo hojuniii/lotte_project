@@ -70,7 +70,8 @@ def mypage(request):
 
 def setprofile(request):
     profile = get_object_or_404(Profile,user = request.user)
-    return render(request,'updateprofile.html',{'profile':profile})
+    Boxes = Box.objects.filter(user=request.user).order_by('-id')
+    return render(request,'updateprofile.html',{'Boxes':Boxes,'profile':profile})
 
 def saveprofile(request):
     if request.method == "POST":

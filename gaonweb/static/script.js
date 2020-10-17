@@ -140,22 +140,30 @@
         function textfit() {
             var width_size = window.outerWidth;
             if (width_size >= 800) {
+                $('.footerInfo1').css('display','block');
+                $('.footerInfo2').css('text-align','left');
+                $('.footerInfo2_img').css({'display':'inline-block', 'margin':'10px 40px 20px 80px'});
+                $('.footerInfo2_font').css({'font-size':'14px', 'margin' : '0px'});
                 $('.text-fitter1').css('font-size','36px');
                 $('.text-fitter2').css('font-size','25px');
                 $('.img1_text').css('font-size','40px');
-                $('.img2_text').css('font-size','30px');
-                $('.img2_text').css('bottom','560px');
+                $('.img2_text').css({'font-size':'30px','bottom':'560px'});
                 $('.img3_text').css('font-size','40px');
+                $('.membersImg_text').css('font-size','40px');
                 $('.text').css('margin','60px 30px 0px 50px');
                 $('.img2').css('width','700px');
             }
             else {
+                $('.footerInfo1').css('display','none');
+                $('.footerInfo2').css('text-align','center');
+                $('.footerInfo2_img').css({'display':'block', 'margin':'0 auto'});
+                $('.footerInfo2_font').css({'font-size':'10px', 'margin' : '20px 0px'});
                 $('.text-fitter1').css('font-size','25px');
                 $('.text-fitter2').css('font-size','16px');
                 $('.img1_text').css('font-size','28px');
-                $('.img2_text').css('font-size','20px');
-                $('.img2_text').css('bottom','450px');
+                $('.img2_text').css({'font-size':'20px','bottom':'450px'});
                 $('.img3_text').css('font-size','28px');
+                $('.membersImg_text').css('font-size','27px');
                 $('.text').css('margin','50px 20px 0px 40px');
                 $('.img2').css('width','500px');
             }
@@ -173,6 +181,45 @@
         }
 
         $(window).on('resize', textfit);
+
+        now_page = document.querySelector(".now_page").innerText;
+        if(now_page == "home"){
+            $( '.home_page' ).css('color', '#ec1d25');
+            $( '.switch' ).fadeIn(1500);
+            $( '.footer' ).css('position', 'absolute');
+        }
+        else if(now_page == "members"){
+            $( '.members_page' ).css('color', '#ec1d25');
+            $( '.footer' ).css('position', 'static');
+        }
+        else if(now_page == "place"){
+            $( '.place_page' ).css('color', '#ec1d25');
+            $( '.footer' ).css('position', 'static');
+        }
+        else if(now_page == "signin"){
+            $( '.signin_page' ).css('color', '#ec1d25');
+            $( '.footer' ).css('position', 'static');
+        }
+        else if(now_page == "signup"){
+            $( '.signup_page' ).css('color', '#ec1d25');
+            $( '.footer' ).css('position', 'static');
+        }
+        else if(now_page == "mypage"){
+            $( '.mypage_page' ).css('color', '#ec1d25');
+            $( '.footer' ).css('position', 'static');
+            //selected 선택
+            opcnt = document.getElementById("service_place").options.length;
+            for(i=0; i<opcnt; i++){
+                
+                if(document.getElementById("service_place").options[i].value == document.getElementById("comp").innerText){
+                    document.getElementById("service_place").options[i].selected = true;
+                break;
+            }
+        }
+        }
+
+
+        
     } );
 
 
