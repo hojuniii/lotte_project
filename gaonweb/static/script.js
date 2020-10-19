@@ -9,7 +9,7 @@
         //window 사이즈
         $(window).on('resize', window_size);
         //scroll
-        $( window ).scroll( scrollMove );
+        
 
         switch (now_page){
             case 'home':
@@ -44,15 +44,8 @@
             case 'mypage_edit':
                 $( '.mypage_page' ).css('color', '#ec1d25');
                 $( '.footer' ).css('position', 'static');
-                //selected 선택
-                var opcnt = document.getElementById("service_place").options.length;
-                for(i=0; i<opcnt; i++){
-                    
-                    if(document.getElementById("service_place").options[i].value == document.getElementById("comp").innerText){
-                        document.getElementById("service_place").options[i].selected = true;
-                        break;
-                    }
-                }
+                var value= $( '.passValue' ).val();
+                $( '.signup_place_search span' ).text(value);
                 break;
             
             default:
@@ -66,7 +59,7 @@
             return false;
         } );
         $( '.switch1' ).click( function() {
-            $( 'html, body' ).animate( { scrollTop : 620 }, 800 );
+            $( 'html, body' ).animate( { scrollTop : 600 }, 800 );
             return false;
         } );
         $( '.switch2' ).click( function() {
@@ -123,11 +116,14 @@
         //윈도우사이즈
         function window_size() {
             var width_size = window.outerWidth;
-            if (width_size <= 500) {
+            if (width_size <= 510) {
                 $('.content3-member-container div').css('width',width_size-80+"px");
+                $('.members_card').css('width',width_size-80+"px");
             }
-            else
-            $('.content3-member-container div').css('width',"420px");
+            else{
+                $('.content3-member-container div').css('width',"420px");
+                $('.members_card').css('width',"420px");
+            }
             if (width_size >= 800) {
                 $('.footerInfo1').css('display','block');
                 $('.footerInfo2').css('text-align','left');
@@ -142,6 +138,7 @@
                 $('.membersImg_text').css('font-size','40px');
                 $('.text').css('margin','60px 30px 0px 50px');
                 $('.img2').css('width','700px');
+                $('.place_card_container').css('text-align',"left");
             }
             else {
                 $('.footerInfo1').css('display','none');
@@ -157,6 +154,7 @@
                 $('.membersImg_text').css('font-size','27px');
                 $('.text').css('margin','50px 20px 0px 40px');
                 $('.img2').css('width','500px');
+                $('.place_card_container').css('text-align',"center");
             }
             
             if (width_size >= 1032) {
@@ -167,6 +165,14 @@
             else{
                 $('.nav-link').css('display','none');
                 $('.nav-button').css('display','inline');
+            }
+            if (width_size >=1380){
+                $('.members_card_container').css('text-align','left');
+                $('.members_card').css('margin','0px 0px 30px 40px');
+            }
+            else{
+                $('.members_card_container').css('text-align','center');
+                $('.members_card').css('margin','0px 20px 30px 20px');
             }
 
         }
@@ -234,7 +240,7 @@
                 $( '.top' ).fadeOut();
             }
         }
-        
+        $( window ).scroll( scrollMove );
 
 
 

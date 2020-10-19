@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>롯데가온</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-members.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-mypage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-sign.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{% static 'script.js' %}" type="text/javascript"></script>
+    <script src="{% static 'script-place.js' %}" type="text/javascript"></script>
     <link rel="shortcut icon" href="../static/img/logo.ico"/>
 </head>
 
@@ -104,4 +110,150 @@
     <div class="switch1"></div>
     <div class="switch2"></div>
     <div class="switch3"></div>
+</div>
+<div class="background-place">
+        
+    <div class="background-place-container">
+        <div class="background-place-h1"><strong>지역선택</strong></div>
+        <div class="background-place-content background-place-1">
+            서울 <span class="triangle1">▼</span>
+            <div class="background-place-container2" style="display: none;">
+                <div class="background-place-content2 background-place-1">
+                    강남구 <span class="triangle2">▶</span>
+                    <div class="background-place-container3" style="display: none;">
+                        <div class="background-place-content3" name="서울 강남구 신사동 래미안">
+                            신사동 래미안
+                        </div>
+                        <div class="background-place-content3" name="서울 강남구 압구정동 어울림">
+                            압구정동 어울림
+                        </div>
+                        <div class="background-place-content3" name="서울 강남구 대치동 더샵">
+                            대치동 더샵
+                        </div>
+                        <div class="background-place-content3" name="서울 강남구 논현동 신도브레뉴">
+                            논현동 신도브레뉴
+                        </div>
+                        <div class="background-place-content3" name="서울 강남구 일원동 중앙하이츠빌">
+                            일원동 중앙하이츠빌
+                        </div>
+                    </div>
+                </div>
+                <div class="background-place-content2 background-place-1">
+                    송파구 <span class="triangle2">▶</span>
+                    <div class="background-place-container3" style="display: none;">
+                        <div class="background-place-content3" name="서울 송파구 오륜동 미지엔">
+                            오륜동 미지엔
+                        </div>
+                        <div class="background-place-content3" name="서울 송파구 잠실2동 좋은집">
+                            잠실2동 좋은집
+                        </div>
+                        <div class="background-place-content3" name="서울 송파구 송파1동 꿈에그린">
+                            송파1동 꿈에그린
+                        </div>
+                    </div>
+                </div>
+                <div class="background-place-content2 background-place-1">
+                    강동구 <span class="triangle2">▶</span>
+                    <div class="background-place-container3" style="display: none;">
+                        <div class="background-place-content3" name="서울 강동구 천호1동 SKview">
+                            천호1동 SKview
+                        </div>
+                        <div class="background-place-content3" name="서울 강동구 강일동 Xi">
+                            강일동 Xi
+                        </div>
+                        <div class="background-place-content3" name="서울 강동구 상일동 몰라">
+                            상일동 몰라
+                        </div>
+                        <div class="background-place-content3" name="서울 강동구 암사2동 현진에버빌">
+                            암사2동 현진에버빌
+                        </div>
+                    </div>
+                </div>
+                <div class="background-place-content2 background-place-1">
+                    노원구 <span class="triangle2">▶</span>
+                    <div class="background-place-container3" style="display: none;">
+                        <div class="background-place-content3" name="서울 노원구 공릉1동 e편한세상">
+                            공릉1동 e편한세상
+                        </div>
+                        <div class="background-place-content3" name="서울 노원구 상계1동 미소지음">
+                            상계1동 미소지음
+                        </div>
+                        <div class="background-place-content3" name="서울 노원구 상계3.4동 래미안">
+                            상계3.4동 래미안
+                        </div>
+                        <div class="background-place-content3" name="서울 노원구 하계1동 중앙하이츠빌">
+                            하계1동 중앙하이츠빌
+                        </div>
+                    </div>
+                </div>
+                <div class="background-place-content2 background-place-1">
+                    용산구 <span class="triangle2">▶</span>
+                    <div class="background-place-container3" style="display: none;">
+                        <div class="background-place-content3" name="서울 용산구 남영동 경남아너스빌">
+                            남영동 경남아너스빌
+                        </div>
+                        <div class="background-place-content3" name="서울 용산구 용문동 꿈에그린">
+                            용문동 꿈에그린
+                        </div>
+                        <div class="background-place-content3" name="서울 용산구 이촌1동 아이파크">
+                            이촌1동 아이파크
+                        </div>
+                        <div class="background-place-content3" name="서울 용산구 서빙고동 e편한세상">
+                            서빙고동 e편한세상
+                        </div>
+                        <div class="background-place-content3" name="서울 용산구 남영동 더샵">
+                            남영동 더샵
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background-place-content background-place-2">
+            경기 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            인천 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            강원 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            제주 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            대전 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            충북 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            충남/세종 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            부산 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            울산 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            경남 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            대구 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            경북 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            광주 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            전남 <span class="triangle1">▼</span>
+        </div>
+        <div class="background-place-content background-place-2">
+            전주/전북 <span class="triangle1">▼</span>
+        </div>
+        <span class="background-place-alert">※ 아직 서비스 준비중인 지역입니다 ※</span>
+        <div class="background-place-close">close</div>
+    </div>
 </div>
