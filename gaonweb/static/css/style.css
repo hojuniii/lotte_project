@@ -62,6 +62,7 @@
 .members_card img{
     border-radius: 70%;
     width:120px;
+    height:120px;
     position: absolute;
     transform:translate(0%,-50%);
     top: 40%;

@@ -23,10 +23,10 @@
 </div>
 
 <div class="members_card_container">
-{% for Profile in profiles %}
+{% for Profile in profiles.all %}
 <div class="members_card">
     <img src="{{Profile.profile_image.url}}">
-    <span>{{Profile.nickname}}</span>
+    <span>{{Profile.nickname}}<br>{{Profile.service_place}}</span>
 </div>
 {% endfor %}
 </div>
