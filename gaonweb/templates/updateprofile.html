@@ -8,19 +8,15 @@
     <div class="information">
         <form action="{% url 'saveprofile' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <input type="file" class="form-control" id="profile_image" name="profile_image" multiple style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:165px;"><br>
-            아이디 : <strong>{{profile.user}}</strong><br>
-            
+            <input type="file" id="profile_image" name="profile_image" multiple style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:190px;"><br>
+            <input name="service_place" id="status" class="passValue" value="{{profile.service_place}}" style="visibility: hidden; width:0px; height:0px;"><br>
+            번호 : <strong>{{profile.user}}</strong><br>
             <label for="nickname">이름 : </label>
-            <input id="nickname" name="nickname" type="text" placeholder="닉네임" value="{{profile.nickname}}" style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:95px;"><br>
-            <label for="service_place">지역 : </label>
-            <select name="service_place" id="service_place" style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:100px;">
-                <option value="수원">수원</option>
-                <option value="서울">서울</option>
-                <option value="인천">인천</option>
-                <option value="광주">광주</option>
+            <input id="nickname" name="nickname" type="text" placeholder="닉네임" value="{{profile.nickname}}" style="border:0.5px solid #f0f0f0; border-radius: 10px; padding:3px; width:150px;"><br>
+            
+            <span style="position: relative; top:-10px;">지역 : </span>
+            <div class="signup_place_search" style="border:0.5px solid #f0f0f0; width:140px; height: 10px; margin:15px 0px 0px 0px; "><span style="font-size: 10px;">지역검색</span><img src="{% static 'img/search.png' %}"></div><br>
             </select>
-            <div id="comp" style="display:none">{{profile.service_place}}</div>
             <input class="information-button" style="display:block;" type="submit" value="완료">
             <br>
         </form>

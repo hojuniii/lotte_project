@@ -22,10 +22,12 @@
 
 </div>
 
-{% for Profile in profiles %}
-    {{Profile.nickname}}
-    <br>
-    <img src="{{Profile.profile_image.url}}" width="50">
-    <br><br>
-    {% endfor %}
+<div class="members_card_container">
+{% for Profile in profiles.all %}
+<div class="members_card">
+    <img src="{{Profile.profile_image.url}}">
+    <span>{{Profile.nickname}}<br>{{Profile.service_place}}</span>
+</div>
+{% endfor %}
+</div>
 {% endblock %}

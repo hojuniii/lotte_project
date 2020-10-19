@@ -13,8 +13,9 @@ def home(request):
 def place(request):
     return render(request,'place.html')
 
-def members(request,place):
-    profiles = Profile.objects.filter(service_place=place).order_by('nickname')
+def members(request):
+    # profiles = Profile.objects.filter().order_by('nickname')
+    profiles = Profile.objects
     return render(request,'members.html',{'profiles':profiles})
 
 def members_search(request):

@@ -10,7 +10,7 @@ import api.urls
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path("place", views.place , name="place"),
-    path("members/<place>", views.members , name="members"),
+    path("members", views.members , name="members"),
     path("membersearch/",views.members_search,name="membersearch"),
     path("signin", views.signin , name="signin"),
     path("logout_view", views.logout_view , name="logout_view"),

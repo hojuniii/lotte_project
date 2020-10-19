@@ -13,6 +13,7 @@
     object-fit: cover;
     vertical-align: middle;
 }
+
 .membersImg_text{
     font-size : 36px;
     color:white;
@@ -23,6 +24,11 @@
     top: 40%;
     left: 50%;
 }
+
+
+
+
+
 
 .search_bar_container{
     position: absolute;
