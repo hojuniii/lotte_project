@@ -130,10 +130,14 @@
             if (width_size <= 510) {
                 $('.content3-member-container div').css('width',width_size-80+"px");
                 $('.members_card').css('width',width_size-80+"px");
+                $('.members_card div').css('width',"55%");
+                $('.content3-card-div').css('width',"55%");
             }
             else{
                 $('.content3-member-container div').css('width',"420px");
                 $('.members_card').css('width',"420px");
+                $('.members_card div').css('width',"60%");
+                $('.content3-card-div').css('width',"60%");
             }
             if (width_size >= 800) {
                 $('.footerInfo1').css('display','block');

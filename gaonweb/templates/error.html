@@ -3,9 +3,13 @@
     alert('아이디와 비밀번호를 확인하세요');
     
 </script>
-{% else %}
+{% elif errorname == "signuperror" %}
 <script>    
     alert('이미 있는 아이디 입니다.');
+</script>
+{% elif errorname == "ageerror"%}
+<script>    
+    alert('65세 미만은 가입하실 수 없습니다.');
 </script>
 {% endif %}
 <script>

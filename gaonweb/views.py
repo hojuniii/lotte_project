@@ -5,8 +5,10 @@ from api.models import Box, Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from PIL import Image
+from datetime import datetime
 errorname = ""
 place_key = 0
+year = datetime.today().year % 100 + 101
 place_value= {
     0:"all",
     1:"서울 강남구 신사동 래미안",
@@ -40,23 +42,30 @@ def place(request):
     return render(request,'place.html')
 
 def members(request):
+    print(year)
     # profiles = Profile.objects.filter().order_by('nickname')
     global place_key
     global name_value
     temp_value=place_value[place_key]
     if(place_key==0):
         if(name_value=="all"):
-            profiles = Profile.objects
+            profiles = Profile.objects.exclude(pk=1).order_by('nickname')
         else:
-            profiles = Profile.objects.filter(nickname__icontains=name_value).order_by('nickname')
+            profiles = Profile.objects.filter(nickname__icontains=name_value).exclude(pk=1).order_by('nickname')
             name_value="all"
     else :
-        profiles = Profile.objects.filter(service_place__icontains=place_value[place_key]).order_by('service_place')
+        profiles = Profile.objects.filter(service_place__icontains=place_value[place_key]).exclude(pk=1).order_by('service_place')
         place_key=0
+    #box 개수 세는 dictionary
+    box_num=dict()
+
+    #전체 user 개수 세는 변수
+    user_num=Profile.objects.exclude(pk=1).count()
+    
     for p in profiles:
-        boxes = Box.objects.filter(user=p.user)
-        p.box_num=boxes.exclude(status="W").count
-    return render(request,'members.html',{'profiles':profiles,'temp_value':temp_value})
+        boxes = Box.objects.filter(user=p.user, status="C")
+        box_num[p.user]=boxes.count()
+    return render(request,'members.html',{'profiles':profiles,'temp_value':temp_value,'user_num':user_num ,'box_num':box_num})
 
 def placetemp(request, temp):
     global place_key
@@ -86,34 +95,43 @@ def signin(request):
 
 def signup(request):
     if request.method=="POST":
+        global errorname
         username= request.POST["username"]
         password= request.POST["password"]
         uservalid = User.objects.filter(username__icontains=username)
+        age = year-int(request.POST['birth'])//10000
         valid = True
+        valid2 = True
+        if age < 65:
+            valid2 = False
         for i in uservalid:
             if i.username == username:
                 valid=False
         if valid == True:
-            user = User.objects.create_user(username,"",password)
-            profile = get_object_or_404(Profile,user_pk=user.id)
-            # fileName = user.id + '_profile.png'
-            profile.user = user
-            profile.nickname =request.POST['nickname']
-    
-            # image.save(str(user.id) + '_profile.png')
-            if 'profile_image' not in request.FILES:
-                pass
-            else:
-                profile.profile_image =request.FILES['profile_image']
-            profile.service_place=request.POST['service_place']
-            profile.user_pk=user.id
+            if valid2 == True:
+                user = User.objects.create_user(username,"",password)
+                profile = get_object_or_404(Profile,user_pk=user.id)
+                # fileName = user.id + '_profile.png'
+                profile.user = user
+                profile.nickname =request.POST['nickname']
+                profile.birth = request.POST['birth']
+                profile.age = age
+                # image.save(str(user.id) + '_profile.png')
+                if 'profile_image' not in request.FILES:
+                    pass
+                else:
+                    profile.profile_image =request.FILES['profile_image']
+                profile.service_place=request.POST['service_place']
+                profile.user_pk=user.id
 
-            user.save()
-        
-            login(request, user)
-            return redirect("home")
+                user.save()
+            
+                login(request, user)
+                return redirect("home")
+            else :
+                errorname= "ageerror"
+                return render(request,'error.html',{'errorname':errorname})
         else :
-            global errorname
             errorname = "signuperror"
             return render(request,'error.html',{'errorname':errorname})
 

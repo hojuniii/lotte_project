@@ -7,12 +7,12 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null =True, blank = True)
-    box_num = models.IntegerField(blank=True, null=True, default=0)
     user_pk = models.IntegerField(blank=True)
     nickname = models.CharField(max_length=200, blank=True)
-    #phone = models.CharField(max_length=200, blank=True)
     profile_image = models.ImageField(default='images/default.png',upload_to='images/', blank=True, null=True)
     service_place = models.CharField(max_length=200, blank=True)
+    birth = models.CharField(max_length=6,blank = True)
+    age = models.IntegerField(default=70)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

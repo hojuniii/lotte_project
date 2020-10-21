@@ -26,7 +26,7 @@
     <h2 class="members_h2">OUR<br>MEMBER</h2>
     <div class="members_h2_link">
         <div class="members_h2_box">
-            <a href="{% url 'placetemp' 0 %}">전체보기(12)</a>
+            <a href="{% url 'placetemp' 0 %}">전체보기({{user_num}})</a>
             <div class="signup_place_search" style="position : relative; border:0.5px solid #e05247; display: inline-block; font-size:20px; width:200px; height: 20px; font-weight: 400;">
                 <span>지역검색</span><img src="{% static 'img/search.png' %}">
             </div>
@@ -39,9 +39,16 @@
 <div class="members_card">
     <img src="{{Profile.profile_image.url}}">
     <div>
-        {{Profile.nickname}}<br>
+        {{Profile.nickname}}({{Profile.age}})<br>
         <span style="font-size:13px; color:gray;">{{Profile.service_place}}</span><br><br>
-        <span style="color:#e05247;">택배 완료수 : {{Profile.box_num}}</span>
+        <span style="color:#e05247;">
+            택배 완료수 : 
+            {% for key, value in box_num.items %}
+                {% if key == Profile.user  %}
+                    {{value}}
+                {% endif %}
+            {% endfor %}
+        </span>
     </div>
 </div>
 {% endfor %}

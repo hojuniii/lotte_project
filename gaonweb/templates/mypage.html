@@ -3,14 +3,14 @@
 {% load static %}
 <div class="now_page" style="display:none;">mypage</div>
 <div class="container">
-    <div class="information-image" class="profile ">
+    <div class="information-image" class="profile">
         <img src="{{profile.profile_image.url}}">
     </div>
     <br>
-    <div class="information">
-        번호 : <strong>{{profile.user}}</strong><br>
-        이름 : <strong>{{profile.nickname}}</strong><br>
-        지역 : <strong>{{profile.service_place}}</strong><br>
+    <div class="information" style="line-height: 30px;">
+        <span><strong>번호 : </strong>{{profile.user}}<br></span>
+        <span><strong>이름 : </strong>{{profile.nickname}}({{profile.age}})<br></span>
+        <span><strong>지역 : </strong>{{profile.service_place}}<br></span>
     </div>
     <a href="{% url 'setprofile' %}" class="btn"><div class="information-button">수정하기</div></a>
 </div>
