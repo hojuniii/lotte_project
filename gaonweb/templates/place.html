@@ -4,55 +4,173 @@
 <div class="now_page" style="display:none;">place</div>
 <div class="members_container">
     <div class="membersImg">
-        <img src="{% static 'img/2.png' %}">
+        <img src="{% static 'img/2.png'%}">
     </div>
-    <div class="placeImg_text">
+    
+    <div class="placeImg_text" style="width:100%;">
         가온 서비스 운영 지역
     </div>
 </div>
-
-<div class="place_card_container">
-    <a href="#">
-        <div class="place_card">
-            <img src="{% static 'img/money.png' %}">
-            <span>오륜동</span>
+<br><br>
+<div class="pos1" style="padding-top:10px;">
+    <h2 class="place_h2">서울 강남구</h2>
+    <div class="place_bar1"></div>
+        <div class="place_card_container">
+            <a href="{% url 'placetemp' 1 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place1.png'%}">
+                    <span>신사동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 2 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place2.png'%}">
+                    <span>압구정동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 3 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place3.png'%}">
+                    <span>대치동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 4 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place4.png'%}">
+                    <span>논현동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 5 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place5.png'%}">
+                    <span>일원동</span>
+                </div>
+            </a>
         </div>
-    </a>
-    <a href="#">
-        <div class="place_card">
-            <img src="{% static 'img/money.png' %}">
-            <span>오륜동</span>
+    <div class="place_bar2"></div>
+</div><br><br><br><br><br>
+<div class="pos2" style="padding-top:10px;">
+    <h2 class="place_h2">서울 송파구</h2>
+    <div class="place_bar1"></div>
+        <div class="place_card_container">
+            <a href="{% url 'placetemp' 6 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place6.png'%}">
+                    <span>오륜동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 7 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place7.png'%}">
+                    <span>잠실2동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 8 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place8.png'%}">
+                    <span>송파1동</span>
+                </div>
+            </a>
         </div>
-    </a>
-    <a href="#">
-        <div class="place_card">
-            <img src="{% static 'img/money.png' %}">
-            <span>오륜동</span>
+    <div class="place_bar2"></div>
+</div><br><br><br><br><br>
+<div class="pos3" style="padding-top:10px;">
+    <h2 class="place_h2">서울 강동구</h2>
+    <div class="place_bar1"></div>
+        <div class="place_card_container">
+            <a href="{% url 'placetemp' 9 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place9.png'%}">
+                    <span>천호1동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 10 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place10.png'%}">
+                    <span>강일동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 11 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place11.png'%}">
+                    <span>상일동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 12 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place12.png'%}">
+                    <span>암사2동</span>
+                </div>
+            </a>
         </div>
-    </a>
-    <a href="#">
-        <div class="place_card">
-            <img src="{% static 'img/money.png' %}">
-            <span>오륜동</span>
+    <div class="place_bar2"></div>
+</div><br><br><br><br><br>
+<div class="pos4" style="padding-top:10px;">
+    <h2 class="place_h2">서울 노원구</h2>
+    <div class="place_bar1"></div>
+        <div class="place_card_container">
+            <a href="{% url 'placetemp' 13 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place13.png'%}">
+                    <span>공릉1동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 14 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place14.png'%}">
+                    <span>상계1동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 15 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place15.png'%}">
+                    <span>상계3.4동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 16 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place16.png'%}">
+                    <span>하계1동</span>
+                </div>
+            </a>
         </div>
-    </a>
-    <a href="#">
-        <div class="place_card">
-            <img src="{% static 'img/money.png' %}">
-            <span>오륜동</span>
+    <div class="place_bar2"></div>
+</div><br><br><br><br><br>
+<div class="pos5" style="padding-top:10px;">
+    <h2 class="place_h2">서울 용산구</h2>
+    <div class="place_bar1"></div>
+        <div class="place_card_container">
+            <a href="{% url 'placetemp' 17 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place17.png'%}">
+                    <span>남영동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 18 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place18.png'%}">
+                    <span>용문동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 19 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place19.png'%}">
+                    <span>이촌1동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 20 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place20.png'%}">
+                    <span>서빙고동</span>
+                </div>
+            </a>
+            <a href="{% url 'placetemp' 21 %}">
+                <div class="place_card">
+                    <img src="{% static 'img/place/place21.png'%}">
+                    <span>남영동</span>
+                </div>
+            </a>
         </div>
-    </a>
-    <a href="#">
-        <div class="place_card">
-            <img src="{% static 'img/money.png' %}">
-            <span>오륜동</span>
-        </div>
-    </a>
-    <a href="#">
-        <div class="place_card">
-            <img src="{% static 'img/money.png' %}">
-            <span>오륜동</span>
-        </div>
-    </a>
-</div>
+    <div class="place_bar2"></div>
+</div><br><br><br>
 {% endblock %}
