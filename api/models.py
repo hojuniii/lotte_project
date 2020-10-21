@@ -11,15 +11,13 @@ class Profile(models.Model):
     nickname = models.CharField(max_length=200, blank=True)
     profile_image = models.ImageField(default='images/default.png',upload_to='images/', blank=True, null=True)
     service_place = models.CharField(max_length=200, blank=True)
-    birth = models.CharField(max_length=6,blank = True)
+    birth = models.CharField(max_length=8,blank = True)
     age = models.IntegerField(default=70)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance, user_pk=instance.id)
-        
-
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
@@ -32,8 +30,8 @@ class Box(models.Model):
     customer_location = models.CharField(max_length=200, blank=True)
     customer_phonenum = models.CharField(max_length=200, blank=True)
     customer_name = models.CharField(max_length=200, blank=True)
-    started_at = models.DateTimeField(auto_now_add=True)
-    completed_at = models.DateTimeField(auto_now=True)
+    started_at = models.CharField(max_length=20, null = True, blank = True)
+    completed_at = models.CharField(max_length=20, null = True, blank = True)
     STATUS = (
         ("W", "배송 대기"),          #큐알 코드 찍기 전
         ("D", "배송 중"),           #큐알 코드 찍고 도착 전
