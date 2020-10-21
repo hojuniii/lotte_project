@@ -29,8 +29,8 @@
 
 <!-- 2번째 내용 -->
 <div class="content 2" style="height: 600px; top:1380px;">
-    <div>
-        <div class="text-container text2" style="width:40%; float:left; display:none;">
+    <div style="position: relative; height:400px; width:100%;">
+        <div class="text-container text2" style="position: absolute; left:0; top:0; width:40%; display: none;">
             <div class="text" style="margin:20px 40px;">
                 <span class="text-fitter1" style="font-size: 18px; color:#ec1d25; font-weight: 500;">SERVICE </span><br>
                 <span class="text-fitter1" style="font-size: 20px; font-weight: 600;">공유가치창출을 위한<br>롯데 가온 앱 서비스</span>
@@ -38,31 +38,44 @@
                 <span class="text-fitter2" style="font-size: 15px; font-weight: 500;">‘실버 택배를<br>신뢰있게 정확하게'</span>
             </div>
         </div>
-        <div style="width:60%; float:left; display:none;" class="contentImg2">
+        <div style="position:absolute; right:0; top:0; width:60%; display: none;" class="contentImg2">
             <div class="youtube1" style="width:88%; margin:0 auto;">
                 <iframe style="width:100%; display:block; margin:0 auto;" height="390" src="https://www.youtube.com/embed/Pai27UhYQeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
-    <div style="display:none;" class="text2">
-        <div style="clear:right; margin-top:20px;">
-            <div style="width : 24%; float:right;">
-                <img src="{% static 'img/icon3.png' %}" width="20">
-                실시간 배송조회 가능<br>---------
-            </div>
-            <div style="width : 24%; float:right;">
-                <img src="{% static 'img/icon4.png' %}" width="20">
-                택배관리<br>----------
-            </div>
-        </div>
-        <div style="clear:right;">
-            <div style="float:right; width:24%;">
-                <img src="{% static 'img/icon1.png' %}" width="20">
-                또 뭐있지<br>---------
-            </div>
-            <div style="float:right; width:24%;">
-                <img src="{% static 'img/icon2.png' %}" width="20">
-                안전한 배송<br>---------
+    <div style="display:none; position: relative;" class="content2-text">
+        <div class= "content2-subbox"style="display:inline-block; width:39%; height:200px;"></div>
+        <div class= "content2-cardbox"  style="display:inline-block; width:60%;">
+            <div style="width:88%; margin:0 auto; padding-top:30px;">
+                <div class="content2-card">
+                    <img src="{% static 'img/icon1.png' %}">
+                    <span class="content2-card-text">
+                        실시간 배송조회 관리<br>
+                        <span>각 택배의 큐알코드를 통해 배송 시작부터 완료까지 전반적인 배송 현황 관리</span>
+                    </span>
+                </div>
+                <div class="content2-card">
+                    <img src="{% static 'img/icon2.png' %}">
+                    <span class="content2-card-text">
+                        전체 배송 결과 조회<br>
+                        <span>배송 완료된 건수들의 전체 결과 조회 및 문제 발생 시 빠른 대처 가능</span>
+                    </span>
+                </div>
+                <div class="content2-card">
+                    <img src="{% static 'img/icon3.png' %}">
+                    <span class="content2-card-text">
+                        정확하고 안전한 배송<br>
+                        <span>주민분들의 신뢰성있는 배송 서비스</span>
+                    </span>
+                </div>
+                <div class="content2-card">
+                    <img src="{% static 'img/icon4.png' %}">
+                    <span class="content2-card-text">
+                        믿음직한 회원 관리<br>
+                        <span>사이트 내의 등록된 우리 동네 기사님들 정보 조회 가능한</span>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -79,12 +92,54 @@
         </div>
         <div style="background-color: #e05247; padding:3px; width:95%; margin:0px auto; margin-top:20px;"></div>
         <div class="content3-member-container">
-            <div style="left:40px;">안녕1</div>
-            <div style="left:500px;">안녕2</div>
-            <div style="left:960px;">안녕3</div>
-            <div style="left:1420px;">안녕4</div>
-            <div style="left:1880px;">안녕5</div>
-            <div style="left:2340px;">안녕6</div>
+            <div class="content3-card" style="left:40px;">
+                <img src="{% static 'img/people/people4.png' %}">
+                <span class="content3-card-div">
+                    이준성(76)<br>
+                    <span style="font-size:13px; color:gray;">서울시 강남구 논현동 신도브래뉴</span><br><br>
+                    <span style="font-size:14px;">" 안전하고 신속하게 물건을 전달해드리겠습니다. 잘 부탁드립니다."</span>
+                </span>
+            </div>
+            <div class="content3-card" style="left:500px;">
+                <img src="{% static 'img/people/people9.png' %}">
+                <span class="content3-card-div">
+                    고두심(73)<br>
+                    <span style="font-size:13px; color:gray;">서울시 노원구 상계1동 미소지음</span><br><br>
+                    <span style="font-size:14px;">" 최선을 다해 폐 끼쳐드리지 않도록 상자 안다치게 잘 전달해드릴게요 호호~"</span>
+                </span>
+            </div>
+            <div class="content3-card" style="left:960px;">
+                <img src="{% static 'img/people/people3.png' %}">
+                <span class="content3-card-div">
+                    이필두(78)<br>
+                    <span style="font-size:13px; color:gray;">서울시 강남구 천호1동 스카이뷰</span><br><br>
+                    <span style="font-size:14px;">" 롯데가 참 좋아~"</span>
+                </span>
+            </div>
+            <div class="content3-card" style="left:1420px;">
+                <img src="{% static 'img/people/people2.png' %}">
+                <span class="content3-card-div">
+                    이순재(68)<br>
+                    <span style="font-size:13px; color:gray;">서울시 강남구 일원동 중앙하이츠빌</span><br><br>
+                    <span style="font-size:14px;">" 퍼뜩 갈거니까 걱정마~ 걱정 붙들어매~"</span>
+                </span>
+            </div>
+            <div class="content3-card" style="left:1880px;">
+                <img src="{% static 'img/people/people12.png' %}">
+                <span class="content3-card-div">
+                    이화춘(74)<br>
+                    <span style="font-size:13px; color:gray;">서울시 송파구 잠실2동 좋은집</span><br><br>
+                    <span style="font-size:14px;">" 우리 손녀딸램들 고기 사줄라면 열심히 할게요~ 나 이화춘이여~!"</span>
+                </span>
+            </div>
+            <div class="content3-card" style="left:2340px;">
+                <img src="{% static 'img/people/people7.png' %}">
+                <span class="content3-card-div">
+                    최순길(76)<br>
+                    <span style="font-size:13px; color:gray;">서울시 강남구 대치동 더샵</span><br><br>
+                    <span style="font-size:14px;">" 내가 한평생 운동을 해가지고 끄덕없어 이정도는~"</span>
+                </span>
+            </div>
         </div>
         <div class="content3-button-container">
             <div style="position:absolute; top:5%; left:2%;">
@@ -120,7 +175,6 @@
         <a href="#"><img src="{% static 'img/playstore.png' %}" style="width:205px;"></a>
     </div>
 </div>
-</section>
 
 
 

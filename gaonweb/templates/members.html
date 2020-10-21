@@ -4,7 +4,7 @@
 <div class="now_page" style="display:none;">members</div>
 <div class="members_container">
 
-        <div class="membersImg">
+    <div class="membersImg">
         <img src="{% static 'img/2.png' %}">
     </div>
     <div class="membersImg_text">
@@ -13,7 +13,7 @@
     <form id="Search" action="{% url 'membersearch' %}" method="post">
         {% csrf_token %}
     <div class="search_bar_container">
-        <input type="text" name="data" class="data" placeholder="검색어를 입력해주세요">
+        <input type="text" name="data" class="data" placeholder="이름을 입력해주세요">
         <input type="submit" value="검색" id="click" class="click">
 
     </div>
@@ -22,12 +22,29 @@
 
 </div>
 
+<div class="members_h2_container">
+    <h2 class="members_h2">OUR<br>MEMBER</h2>
+    <div class="members_h2_link">
+        <div class="members_h2_box">
+            <a href="{% url 'placetemp' 0 %}">전체보기(12)</a>
+            <div class="signup_place_search" style="position : relative; border:0.5px solid #e05247; display: inline-block; font-size:20px; width:200px; height: 20px; font-weight: 400;">
+                <span>지역검색</span><img src="{% static 'img/search.png' %}">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="members_bar"></div>
 <div class="members_card_container">
 {% for Profile in profiles.all %}
 <div class="members_card">
     <img src="{{Profile.profile_image.url}}">
-    <span>{{Profile.nickname}}<br>{{Profile.service_place}}</span>
+    <div>
+        {{Profile.nickname}}<br>
+        <span style="font-size:13px; color:gray;">{{Profile.service_place}}</span><br><br>
+        <span style="color:#e05247;">택배 완료수 : {{Profile.box_num}}</span>
+    </div>
 </div>
 {% endfor %}
 </div>
+<input name="service_place" id="status" class="passValue" value="{{temp_value}}" style="visibility: hidden; width:0px; height:0px;"><br>
 {% endblock %}

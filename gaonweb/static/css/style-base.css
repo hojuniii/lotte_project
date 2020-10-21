@@ -205,6 +205,13 @@ nav a:nth-child(n+5){
     display: block;
   }
 
+  .footerInfo1 .dropdown-content2 a:hover {
+    color:#e05247;
+  }
+  .footerInfo1 .dropdown-content1 a:hover{
+    color:#e05247;
+  }
+
 .footerInfo1-div1:hover .dropdown-content1 {display: block;}
 .footerInfo1-div2:hover .dropdown-content2 {display: block;}
 
