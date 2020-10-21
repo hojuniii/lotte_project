@@ -11,7 +11,7 @@ class Profile(models.Model):
     nickname = models.CharField(max_length=200, blank=True)
     profile_image = models.ImageField(default='images/default.png',upload_to='images/', blank=True, null=True)
     service_place = models.CharField(max_length=200, blank=True)
-    birth = models.CharField(max_length=6,blank = True)
+    birth = models.CharField(max_length=8,blank = True)
     age = models.IntegerField(default=70)
 
 @receiver(post_save, sender=User)

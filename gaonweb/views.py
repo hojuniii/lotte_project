@@ -8,7 +8,7 @@ from PIL import Image
 from datetime import datetime
 errorname = ""
 place_key = 0
-year = datetime.today().year % 100 + 101
+year = datetime.today().year+1
 place_value= {
     0:"all",
     1:"서울 강남구 신사동 래미안",
