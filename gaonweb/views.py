@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from PIL import Image
 from datetime import datetime
+import qrcode
+from random import *
 errorname = ""
 place_key = 0
 year = datetime.today().year+1
@@ -37,6 +39,22 @@ name_value = "all"
 # Create your views here.
 def home(request):
     return render(request,'home.html')
+
+def boxcreate(request):
+    if request.method=="POST":
+        random_num = str(randint(1000000000,9999999999))
+        img = qrcode.make(random_num)
+        img.save('media/images/qr'+random_num+'.png')
+        newbox=Box()
+        newbox.qr_img='media/images/qr'+random_num+'.png'
+        newbox.box_number=random_num
+        newbox.customer_location= request.POST["customer_location"]
+        newbox.customer_phonenum= request.POST["customer_phonenum"]
+        newbox.customer_name= request.POST["customer_name"]
+        print(random_num)
+        newbox.save()
+        return redirect("boxcreate")
+    return render(request,'boxcreate.html')
 
 def place(request):
     return render(request,'place.html')

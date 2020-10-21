@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="now_page" style="display:none;">signup</div>
+<section class="login">
+    <img src="{% static 'img/logo.png' %}" alt="logo">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input name="customer_location" type="text" minlength="1" maxlength="20" placeholder="고객 주소" required><br>
+        <input name="customer_phonenum" type="text" minlength="11" maxlength="11" placeholder="고객 전화번호" required><br>
+        <input name="customer_name" type="text" minlength="1" maxlength="11" placeholder="고객 이름" required><br>
+        <input type="submit" value="회원가입"><br>
+    </form>
+</section>
+{% endblock %}
