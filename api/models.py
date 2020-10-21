@@ -30,13 +30,8 @@ class Box(models.Model):
     customer_location = models.CharField(max_length=200, blank=True)
     customer_phonenum = models.CharField(max_length=200, blank=True)
     customer_name = models.CharField(max_length=200, blank=True)
-<<<<<<< HEAD
-    started_at = models.CharField(max_length=20, null = True, blank = True)
-    completed_at = models.CharField(max_length=20, null = True, blank = True)
-=======
     started_at = models.CharField(max_length=20, blank=True, null=True)
     completed_at = models.CharField(max_length=20, blank=True, null=True)
->>>>>>> f65edfc9870f8495450e700c2db9cdb0dc453051
     STATUS = (
         ("W", "배송 대기"),          #큐알 코드 찍기 전
         ("D", "배송 중"),           #큐알 코드 찍고 도착 전
