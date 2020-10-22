@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% if user.is_authenticated %}
+<div class="now_page" style="display:none;">qrcode</div>
+<div class="members_container">
+    <div class="membersImg">
+        <img src="{% static 'img/3.png'%}">
+    </div>
+    
+    <div class="placeImg_text" style="width:100%;">
+        QR 코드를 찍어보자
+    </div>
+</div>
+<br><br>
+<div class="members_h2_container">
+    <h2 class="members_h2">QR CODE</h2>
+</div>
+<div class="members_bar"></div>
+<div class="pos1" style="padding-top:10px;">
+        
+        <div class="qrcode_card_container">
+            {% for Box in Boxes %}
+            <div class="qrcode_card" style="cursor:pointer;">
+                <img class="qrcode_img" src="{{Box.qr_img.url}}">
+                <span class="qrcode_span">{{Box.box_number}}</span>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="place_bar2"></div>
+</div><br><br>
+
+
+{% else %}
+
+<div style="margin-top: 100px;">로그인 하고 오세요!</div>
+{% endif%}
+{% endblock %}

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/style-mypage.css' %}">
     <link rel="stylesheet" href="{% static 'css/style-sign.css' %}">
     <link rel="stylesheet" href="{% static 'css/style-place.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-qrcode.css' %}">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{% static 'script.js' %}" type="text/javascript"></script>
     <script src="{% static 'script-place.js' %}" type="text/javascript"></script>
@@ -25,6 +26,7 @@
             <a href="{%url 'place'%}" class="place_page">가능지역</a><br><br>
             <a href="{%url 'members'%}" class="members_page">구성원</a><br><br><br>
             {% if user.is_authenticated %}
+            <a href = "{%url 'boxqrcode'%}" class="qrcode_page">QR</a><br><br>
             <a href = "{%url 'mypage'%}" class="mypage_page">마이페이지</a><br><br>
             <a href = "{%url 'logout_view'%}">로그아웃</a><br><br>
             {% else %}
@@ -42,6 +44,7 @@
             {% if user.is_authenticated %}
             <a href = "{%url 'logout_view'%}" class="nav-link">로그아웃</a>
             <a href = "{%url 'mypage'%}" class="nav-link mypage_page">마이페이지</a>
+            <a href = "{%url 'boxqrcode'%}" class="nav-link qrcode_page">QR</a>
             {% else %}
             <a href = "{%url 'signup'%}" class="nav-link signup_page">회원가입</a>
             <a href = "{%url 'signin'%}" class="nav-link signin_page">로그인</a>
@@ -256,4 +259,13 @@
         <span class="background-place-alert">※ 아직 서비스 준비중인 지역입니다 ※</span>
         <div class="background-place-close">close</div>
     </div>
+    
+</div>
+<div class="background-qrcode">
+    <div class="background-qrcode-container">
+        
+        <div class="img_box"><img></div>
+        <span>운송장번호 : 99999999999</span>
+    </div>
+        <div class="background-qrcode-close">close</div>
 </div>
