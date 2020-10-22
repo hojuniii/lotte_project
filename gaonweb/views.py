@@ -9,8 +9,30 @@ from datetime import datetime
 import qrcode
 from random import *
 errorname = ""
+box_num = ""
 place_key = 0
 year = datetime.today().year+1
+customer={
+    1 : (" 101동 905호","박고객","01012341234"),
+    2 : (" 203동 304호","김고객","01022342234"),
+    3 : (" 421동 406호","이고객","01022342234"),
+    4 : (" 131동 607호","장고객","01032343234"),
+    5 : (" 123동 304호","정고객","01042344234"),
+    6 : (" 192동 703호","주고객","01052345234"),
+    7 : (" 921동 801호","호고객","01062346234"),
+    8 : (" 104동 105호","하고객","01072347234"),
+    9 : (" 702동 206호","한고객","01082348234"),
+    11 : (" 741동 303호","여고객","01092349234"),
+    12 : (" 134동 404호","남고객","01013341334"),
+    13 : (" 128동 306호","조고객","01014341434"),
+    14 : (" 189동 1107호","강고객","01015341534"),
+    15 : (" 912동 1904호","유고객","01016341634"),
+    16 : (" 153동 906호","송고객","01017341734"),
+    17 : (" 543동 907호","구고객","01018341834"),
+    18 : (" 345동 2008호","심고객","01019341934"),
+    19 : (" 452동 2109호","곽고객","01012141214"),
+    20 : (" 375동 504호","공고객","01012241224")
+}
 place_value= {
     0:"all",
     1:"서울 강남구 신사동 래미안",
@@ -45,16 +67,20 @@ def boxcreate(request):
         random_num = str(randint(1000000000,9999999999))
         img = qrcode.make(random_num)
         img.save('media/images/qr'+random_num+'.png')
+        global box_num
+        box_num = random_num
+        random_customerNum = randint(1,20)
         newbox=Box()
-        newbox.qr_img='media/images/qr'+random_num+'.png'
+        newbox.qr_img='images/qr'+random_num+'.png'
         newbox.box_number=random_num
-        newbox.customer_location= request.POST["customer_location"]
-        newbox.customer_phonenum= request.POST["customer_phonenum"]
-        newbox.customer_name= request.POST["customer_name"]
-        print(random_num)
+        location = request.POST["customer_location"]
+        location = location+customer.get(random_customerNum)[0]
+        newbox.customer_location = location
+        newbox.customer_name= customer.get(random_customerNum)[1]
+        newbox.customer_phonenum= customer.get(random_customerNum)[2]
         newbox.save()
         return redirect("boxcreate")
-    return render(request,'boxcreate.html')
+    return render(request,'boxcreate.html',{'box_num':box_num})
 
 def place(request):
     return render(request,'place.html')
@@ -186,3 +212,7 @@ def place_toss(request):
     if(request.method=='POST'):
         place_value = request.POST['place_value']
     return redirect('members')
+
+def boxqrcode(request):
+    Boxes = Box.objects.filter(status='W').order_by('-id')
+    return render(request,'boxqrcode.html',{'Boxes':Boxes})

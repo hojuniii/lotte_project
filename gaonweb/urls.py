@@ -20,5 +20,5 @@ urlpatterns = [
     path("setprofile", views.setprofile,name="setprofile"),
     path("saveprofile", views.saveprofile,name="saveprofile"),
     path("boxcreate", views.boxcreate, name="boxcreate"),
-    
+    path("boxqrcode", views.boxqrcode, name="boxqrcode"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

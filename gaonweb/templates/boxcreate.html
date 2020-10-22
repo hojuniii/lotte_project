@@ -6,10 +6,13 @@
     <img src="{% static 'img/logo.png' %}" alt="logo">
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input name="customer_location" type="text" minlength="1" maxlength="20" placeholder="고객 주소" required><br>
-        <input name="customer_phonenum" type="text" minlength="11" maxlength="11" placeholder="고객 전화번호" required><br>
-        <input name="customer_name" type="text" minlength="1" maxlength="11" placeholder="고객 이름" required><br>
-        <input type="submit" value="회원가입"><br>
+        <div class="signup_place_search"><span>지역검색</span><img src="{% static 'img/search.png' %}"></div><br>
+        <input name="customer_location" id="status" class="passValue" value="" style="visibility: hidden; width:0px; height:0px;" required><br>
+        <input type="submit" value="박스추가"><br>
     </form>
+    {% if box_num == "" %}
+    {% else %}
+    <div style="text-align: center; color:#e05247;"> {{box_num}} 박스가 추가되었습니다.</div>
+    {% endif %}
 </section>
 {% endblock %}
