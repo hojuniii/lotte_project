@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from PIL import Image
 from datetime import datetime
-import qrcode, random
+import qrcode
+from random import *
 errorname = ""
 box_num = ""
 place_key = 0
