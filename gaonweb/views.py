@@ -6,8 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from PIL import Image
 from datetime import datetime
-import qrcode
-import random
+import qrcode, random
 errorname = ""
 box_num = ""
 place_key = 0
@@ -31,7 +30,7 @@ customer={
     17 : (" 543동 907호","구고객","01018341834"),
     18 : (" 345동 2008호","심고객","01019341934"),
     19 : (" 452동 2109호","곽고객","01012141214"),
-    20 : (" 375동 504호","공고객","01012241224")
+    20 : (" 375동 504호","공고객","01012241224"),
 }
 place_value= {
     0:"all",
@@ -127,7 +126,6 @@ def signin(request):
         password = request.POST['password']
         user = authenticate(username=username, password=password)
         if user is not None:
-            print("인증성공")
             login(request, user)
             return redirect('home')
         else :
@@ -214,4 +212,22 @@ def place_toss(request):
 
 def boxqrcode(request):
     Boxes = Box.objects.filter(status='W').order_by('-id')
+    if (Boxes.count() < 1):
+        for i in range(0,5):
+            random_num = str(randint(1000000000,9999999999))
+            random_num2 = (randint(1,21))
+            img = qrcode.make(random_num)
+            img.save('media/images/qr'+random_num+'.png')
+            global box_num
+            box_num = random_num
+            random_customerNum = randint(1,20)
+            newbox=Box()
+            newbox.qr_img='images/qr'+random_num+'.png'
+            newbox.box_number=random_num
+            location = place_value.get(random_num2)
+            location = location+customer.get(random_customerNum)[0]
+            newbox.customer_location = location
+            newbox.customer_name= customer.get(random_customerNum)[1]
+            newbox.customer_phonenum= customer.get(random_customerNum)[2]
+            newbox.save()
     return render(request,'boxqrcode.html',{'Boxes':Boxes})
