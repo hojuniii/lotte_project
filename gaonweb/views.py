@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from PIL import Image
 from datetime import datetime
 import qrcode
-from random import *
+import random
 errorname = ""
 place_key = 0
 year = datetime.today().year+1
@@ -51,7 +51,7 @@ def boxcreate(request):
         newbox.customer_location= request.POST["customer_location"]
         newbox.customer_phonenum= request.POST["customer_phonenum"]
         newbox.customer_name= request.POST["customer_name"]
-        print(random_num)
+        
         newbox.save()
         return redirect("boxcreate")
     return render(request,'boxcreate.html')
@@ -60,7 +60,6 @@ def place(request):
     return render(request,'place.html')
 
 def members(request):
-    print(year)
     # profiles = Profile.objects.filter().order_by('nickname')
     global place_key
     global name_value
