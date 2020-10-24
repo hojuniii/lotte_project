@@ -15,89 +15,99 @@
     <link rel="stylesheet" href="{% static 'css/style-qrcode.css' %}">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="{% static 'script.js' %}" type="text/javascript"></script>
-    <script src="{% static 'script-place.js' %}" type="text/javascript"></script>
     <link rel="shortcut icon" href="../static/img/logo.ico"/>
 </head>
 
 <body>
-    <div class="background-nav">
-        <div class="background-nav-link">
-            <a href="{%url 'home'%}" class="home_page">서비스</a><br><br>
-            <a href="{%url 'place'%}" class="place_page">가능지역</a><br><br>
-            <a href="{%url 'members'%}" class="members_page">구성원</a><br><br><br>
-            {% if user.is_authenticated %}
-            <a href = "{%url 'boxqrcode'%}" class="qrcode_page">QR</a><br><br>
-            <a href = "{%url 'mypage'%}" class="mypage_page">마이페이지</a><br><br>
-            <a href = "{%url 'logout_view'%}">로그아웃</a><br><br>
-            {% else %}
-            <a href = "{%url 'signin'%}" class="signin_page">로그인</a><br><br>
-            <a href = "{%url 'signup'%}" class="signup_page">회원가입</a>
-            {% endif %}
+    <div class="loader"></div>
+    <div class="onload" style="display:none;">
+        <div class="background-nav">
+            <div class="background-nav-link">
+                <a href="{%url 'home'%}" class="home_page">서비스</a><br><br>
+                <a href="{%url 'place'%}" class="place_page">가능지역</a><br><br>
+                <a href="{%url 'members'%}" class="members_page">구성원</a><br><br><br>
+                {% if user.is_authenticated %}
+                <a href = "{%url 'boxqrcode'%}" class="qrcode_page">QR</a><br><br>
+                <a href = "{%url 'mypage'%}" class="mypage_page">마이페이지</a><br><br>
+                <a href = "{%url 'logout_view'%}">로그아웃</a><br><br>
+                {% else %}
+                <a href = "{%url 'signin'%}" class="signin_page">로그인</a><br><br>
+                <a href = "{%url 'signup'%}" class="signup_page">회원가입</a>
+                {% endif %}
+            </div>
         </div>
-    </div>
-    <nav>
-        <div id="nav_container">
-            <a href="{%url 'home'%}"><img src="{% static 'img/mainLogo.png' %}"></a>
-            <a href="{%url 'home'%}" class="nav-link home_page">서비스</a>
-            <a href="{%url 'place'%}" class="nav-link place_page">가능지역</a>
-            <a href="{%url 'members'%}" class="nav-link members_page">구성원</a>
-            {% if user.is_authenticated %}
-            <a href = "{%url 'logout_view'%}" class="nav-link">로그아웃</a>
-            <a href = "{%url 'mypage'%}" class="nav-link mypage_page">마이페이지</a>
-            <a href = "{%url 'boxqrcode'%}" class="nav-link qrcode_page">QR</a>
-            {% else %}
-            <a href = "{%url 'signup'%}" class="nav-link signup_page">회원가입</a>
-            <a href = "{%url 'signin'%}" class="nav-link signin_page">로그인</a>
-            {% endif %}
-        </div>
-    </nav> 
-    
+        <nav>
+            <div id="nav_container">
+                <a href="{%url 'home'%}"><img src="{% static 'img/mainLogo.png' %}"></a>
+                <a href="{%url 'home'%}" class="nav-link home_page">서비스</a>
+                <a href="{%url 'place'%}" class="nav-link place_page">가능지역</a>
+                <a href="{%url 'members'%}" class="nav-link members_page">구성원</a>
+                {% if user.is_authenticated %}
+                <a href = "{%url 'logout_view'%}" class="nav-link">로그아웃</a>
+                <a href = "{%url 'mypage'%}" class="nav-link mypage_page">마이페이지</a>
+                <a href = "{%url 'boxqrcode'%}" class="nav-link qrcode_page">QR</a>
+                {% else %}
+                <a href = "{%url 'signup'%}" class="nav-link signup_page">회원가입</a>
+                <a href = "{%url 'signin'%}" class="nav-link signin_page">로그인</a>
+                {% endif %}
+            </div>
+        </nav> 
+        <section>
 
+    {% block content %}
+    {% endblock %}
 
-    
-    <section>
-
-{% block content %}
-{% endblock %}
-
-</section>
-<footer>
-    <div class="footer">
-        <div class="footerInfo1">
-            <a href="https://www.lotteglogis.com/home/policy/privacy" target="_blank"><strong>개인정보처리방침</strong></a>
-            <a href="https://www.lotteglogis.com/home/policy/video" target="_blank">영상정보기기운영/관리방침</a>
-            <a href="https://www.lotteglogis.com/home/policy/standard" target="_blank">택배표준약관</a>
-            <a href="https://www.lotteglogis.com/home/policy/safetyManagement" target="_blank">안전보건방침</a>
-            <a href="https://www.lotteglogis.com/home/policy/emailReject" target="_blank">이메일주소무단수집거부</a>
-            <div class="footerInfo1-div1"> 
-                패밀리 사이트 <span class="footerInfo1-div-arrow1">▲</span>
-                <div class="dropdown-content1">
-                    <a href="#">롯데 글로벌로지스</a>
-                    <a href="#">롯데 멤버스</a>
-                    <a href="#">롯데 GFR</a>
-                    <a href="#">FRL 코리아</a>
+        </section>
+        <footer>
+            <div class="footer">
+                <div class="footerInfo1">
+                    <a href="https://www.lotteglogis.com/home/policy/privacy" target="_blank"><strong>개인정보처리방침</strong></a>
+                    <a href="https://www.lotteglogis.com/home/policy/video" target="_blank">영상정보기기운영/관리방침</a>
+                    <a href="https://www.lotteglogis.com/home/policy/standard" target="_blank">택배표준약관</a>
+                    <a href="https://www.lotteglogis.com/home/policy/safetyManagement" target="_blank">안전보건방침</a>
+                    <a href="https://www.lotteglogis.com/home/policy/emailReject" target="_blank">이메일주소무단수집거부</a>
+                    <div class="footerInfo1-div1"> 
+                        패밀리 사이트 <span class="footerInfo1-div-arrow1">▲</span>
+                        <div class="dropdown-content1">
+                            <div>롯데유통</div>
+                            <a href="http://store.lotteshopping.com/" target="_blank">롯데백화점</a>
+                            <a href="http://www.lottemart.com/" target="_blank">롯데마트</a>
+                            <a href="http://www.lottesuper.co.kr/" target="_blank">롯데슈퍼</a>
+                            <a href="http://www.company.lotte.com/" target="_blank">롯데e커머스</a>
+                            <a href="http://www.lohbs.co.kr/" target="_blank">롯데롭스</a>
+                            <a href="http://www.himart.co.kr/" target="_blank">롯데하이마트</a>
+                            <a href="http://www.lottehomeshopping.com/" target="_blank">롯데홈쇼핑</a>
+                            <a href="http://www.7-eleven.co.kr/" target="_blank">코리아세븐</a>
+                            <a href="http://www.lottedevelop.com/" target="_blank">롯데자산개발</a>
+                            <a href="http://www.lottecinema.co.kr/" target="_blank">롯데컬처웍스</a>
+                            <a href="http://www.ncf.co.kr/" target="_blank">롯데GFR</a>
+                            <a href="http://www.uniqlo.co.kr/" target="_blank">FRL코리아</a>
+                            <a href="http://www.lpoint.com/" target="_blank">롯데멤버스</a>
+                            <a href="https://www.lotteglogis.com/" target="_blank">롯데글로벌로지스</a>
+                            <a href="#" target="_blank">롯데가온</a>
+                        </div>
+                    </div>
+                    <div class="footerInfo1-div2"> 
+                        부가 서비스 <span class="footerInfo1-div-arrow2">▲</span>
+                        <div class="dropdown-content2">
+                            <a href="http://tos.lottegl.com/if/user_check.jsp" target="_blank">의류B2B 설문조사</a>
+                            <a href="https://tos.lottegl.com/if/b2b/index.jsp" target="_blank">의류반품/점간이동</a>
+                            <a href="http://www.tradesign.net/ra/lotteglogis" target="_blank">공인인증센터</a>
+                            <a href="https://truck.llogis.com/portal/index.lgl" target="_blank">화물정보망</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerInfo2">
+                    <img class="footerInfo2_img" src="{% static 'img/footerLogo.png' %}">
+                    <div class="footerInfo2_font">
+                        서울시 중구 통일로 10(연세 세브란스 빌딩) 대표자 : 박찬복 택배고객센터 1588-2121 <br>
+                        사업자등록번호 : 102-81-23012 통신판매신고 : 제2017-서울중구-0433호 <br><br>
+                        <span>COPYRIGHT © 2019 LOTTE GLOBAL LOGISTICS CO,.LTD ALL RIGHTS RESERVED.</span>
+                    </div>
                 </div>
             </div>
-            <div class="footerInfo1-div2"> 
-                부가 서비스 <span class="footerInfo1-div-arrow2">▲</span>
-                <div class="dropdown-content2">
-                    <a href="http://tos.lottegl.com/if/user_check.jsp" target="_blank">의류B2B 설문조사</a>
-                    <a href="https://tos.lottegl.com/if/b2b/index.jsp" target="_blank">의류반품/점간이동</a>
-                    <a href="http://www.tradesign.net/ra/lotteglogis" target="_blank">공인인증센터</a>
-                    <a href="https://truck.llogis.com/portal/index.lgl" target="_blank">화물정보망</a>
-                </div>
-            </div>
-        </div>
-        <div class="footerInfo2">
-            <img class="footerInfo2_img" src="{% static 'img/footerLogo.png' %}">
-            <div class="footerInfo2_font">
-                서울시 중구 통일로 10(연세 세브란스 빌딩) 대표자 : 박찬복 택배고객센터 1588-2121 <br>
-                사업자등록번호 : 102-81-23012 통신판매신고 : 제2017-서울중구-0433호 <br><br>
-                <span>COPYRIGHT © 2019 LOTTE GLOBAL LOGISTICS CO,.LTD ALL RIGHTS RESERVED.</span>
-            </div>
-        </div>
+        </footer>
     </div>
-</footer>
 </body>
 </html>
 <a href="#" class="nav-button">
@@ -259,7 +269,7 @@
         <span class="background-place-alert">※ 아직 서비스 준비중인 지역입니다 ※</span>
         <div class="background-place-close">close</div>
     </div>
-    
+</div>
 </div>
 <div class="background-qrcode">
     <div class="background-qrcode-container">
@@ -267,5 +277,5 @@
         <div class="img_box"><img></div>
         <span>운송장번호 : 99999999999</span>
     </div>
-        <div class="background-qrcode-close">close</div>
+    <div class="background-qrcode-close">close</div>
 </div>

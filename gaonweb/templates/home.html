@@ -7,7 +7,7 @@
         <img src="{% static 'img/1.png' %}">
     </div>
     <div class="img1_text" style="display:none; width:100%;">
-        온기를 더하다, 롯데 가온
+        온기를 더하다, <span>롯데 가온</span>
     </div>
 </div>
 <div class="background">
@@ -17,7 +17,7 @@
         <img src="{% static 'img/money.png' %}">
     </div>
     <div class="text-container text1" style="width:60%; float:left; display:none;">
-        <div class="text" style="margin:20px 40px;">
+        <div class="text1_box">
             <span class="text-fitter0" style="font-size: 25px; color:#ec1d25; font-weight: 500;">실버택배</span><br>
             <span class="text-fitter1" style="font-size: 20px; font-weight: 600;">함께, 더 멀리</span>
             <span class="text-fitter2" style="font-size: 15px; font-weight: 300;"><br><br><strong>어깨 펴세요 기사님!</strong><br>폭증하는 택배 물량으로 과도하고 열악한 근무환경에 노출돼 있던<br>기존 택배 기사님들에게 힘이 되어 줄 택배 시스템의 혁신적 변화<br><br></span>
@@ -31,7 +31,7 @@
 <div class="content 2" style="height: 600px; top:1380px;">
     <div style="position: relative; height:400px; width:100%;">
         <div class="text-container text2" style="position: absolute; left:0; top:0; width:40%; display: none;">
-            <div class="text" style="margin:20px 40px;">
+            <div class="text2_box">
                 <span class="text-fitter0" style="font-size: 25px; color:#ec1d25; font-weight: 500;">SERVICE </span><br>
                 <span class="text-fitter1" style="font-size: 20px; font-weight: 600;">택배에 온기 더하기</span>
                 <span class="text-fitter2" style="font-size: 15px; font-weight: 300;"><br><br>어르신들의 업무를 도와드릴,<br>직관적이고 간편한 '롯데 가온'<br>배송관리 어플리케이션<br><br></span>
@@ -39,8 +39,8 @@
             </div>
         </div>
         <div style="position:absolute; right:0; top:0; width:60%; display: none;" class="contentImg2">
-            <div class="youtube1" style="width:88%; margin:0 auto;">
-                <iframe style="width:100%; display:block; margin:0 auto;" height="390" src="https://www.youtube.com/embed/Pai27UhYQeo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="youtube1">
+                <iframe src="https://www.youtube.com/embed/jCzHUarGsbA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
                     <img src="{% static 'img/icon1.png' %}">
                     <span class="content2-card-text">
                         효울적인 배송 시스템<br>
-                        <span class="content2-card-span">기존 기사님들의 업무에서 과도한 잡무들을 분리함으로써 극대화된 배송 과정의 효율성.</span>
+                        <span class="content2-card-span">기존 기사님들의 업무에서 과도한 잡무들을 분리함으로써<br> 극대화된 배송 과정의 효율성.</span>
                     </span>
                 </div>
                 <div class="content2-card">
@@ -73,7 +73,7 @@
                     <img src="{% static 'img/icon4.png' %}">
                     <span class="content2-card-text">
                         간편한 정보 조회<br>
-                        <span class="content2-card-span">서비스 가능 동네, 우리동네 어르신 그리고 배송 업무 내역까지. 필요한 정보들의 간편한 조회.</span>
+                        <span class="content2-card-span">서비스 가능 동네, 우리동네 어르신 그리고 배송 업무 내역까지.<br> 필요한 정보들의 간편한 조회.</span>
                     </span>
                 </div>
             </div>
@@ -82,7 +82,7 @@
 </div>
 
  <!-- 3번째 내용 -->
- <div class="content 3" style="height: 500px; top:2050px">
+<div class="content 3" style="width:100%; height: 500px; top:2050px; overflow: hidden;">
     <div>
     </div>
     <div class="text-container" style="width:100%;">
@@ -156,8 +156,7 @@
 
 <!-- 핸드폰 둥둥 -->
 <div class="img2_container">
-    <div class="img2_text" style="width:100%; text-align: center;">
-        온기를 더하다, <span style="color:#ec1d25">롯데 가온</span>
+    <div class="img2_text">온기를 더하다, <span style="color:#ec1d25">롯데 가온</span>
     </div>
     <div class="img2_image">
         <img class = "img2" src="{% static 'img/phone.png' %}">
@@ -174,8 +173,8 @@
         지금, <span>가온앱</span>을 다운받아보세요
     </div>
     <div class="img3_image">
-        <a href="#"><img src="{% static 'img/appstore.png' %}" style="width:190px; padding-bottom:7px;"></a>
-        <a href="#"><img src="{% static 'img/playstore.png' %}" style="width:205px;"></a>
+        <a class="apple" style="cursor:pointer;"><img src="{% static 'img/appstore.png' %}" style="width:190px; padding-bottom:7px;"></a>
+        <a href="../static/img/1.png" download="hello.png"><img src="{% static 'img/playstore.png' %}" style="width:205px;"></a>
     </div>
 </div>
 

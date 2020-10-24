@@ -5,23 +5,31 @@
 <div class="now_page" style="display:none;">qrcode</div>
 <div class="members_container">
     <div class="membersImg">
-        <img src="{% static 'img/3.png'%}">
+        <img src="{% static 'img/4.png'%}">
     </div>
     
-    <div class="placeImg_text" style="width:100%;">
-        QR 코드를 찍어보자
+    <div class="placeImg_text" style="width:100%; text-shadow: 0px 0px 9px gray;">
+        택배 QR코드
     </div>
 </div>
 <br><br>
-<div class="members_h2_container">
-    <h2 class="members_h2">QR CODE</h2>
+<div>
+    <div class="qrcode_h2">QR CODE&nbsp;
+        <a href="#" class="question_mark">
+        <div class="question_mark_div">
+            <span>?</span>
+        </div></a>
+        <div class="question_mark_container">
+            앱 시연 과정에서 QR코드 촬영 단계를 위한 테스트 페이지 입니다.
+        </div>
+    </div>
 </div>
 <div class="members_bar"></div>
 <div class="pos1" style="padding-top:10px;">
         
         <div class="qrcode_card_container">
             {% for Box in Boxes %}
-            <div class="qrcode_card" style="cursor:pointer;">
+            <div class="qrcode_card" style="cursor:zoom-in;">
                 <img class="qrcode_img" src="{{Box.qr_img.url}}">
                 <span class="qrcode_span">{{Box.box_number}}</span>
             </div>

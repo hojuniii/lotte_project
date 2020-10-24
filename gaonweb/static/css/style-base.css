@@ -129,9 +129,10 @@ nav a:nth-child(n+5){
 
 .footer {
     margin-top:100px;
-    position: absolute;
+    position: static;
     top:3750px;
     width: 100%;
+    overflow: hidden;
 }
 
 
@@ -176,23 +177,37 @@ nav a:nth-child(n+5){
 .footerInfo1 .dropdown-content1{
     position:absolute;
     bottom:30px;
+    right:0px;
     display:none;
-    min-width: 130px;
+    cursor: default;
+    width:260px;
     z-index: 500;
     border:1px solid  rgb(201, 201, 201);
     background-color: white;
+    text-align:left;
 }
+.footerInfo1 .dropdown-content1 div {
+    padding:5px 0px;
+    font-size: 16px;
+    font-weight: 500;
+    width:100%;
+    display: inline-block;
+    text-align:center;
+  }
 .footerInfo1 .dropdown-content1 a {
-    padding: 5px 3px;
+    padding:5px 0px;
     font-size: 14px;
     text-decoration: none;
-    display: block;
+    width:43%;
+    display: inline-block;
+    text-align:center;
   }
 
   .footerInfo1 .dropdown-content2{
     position:absolute;
     bottom:30px;
     display:none;
+    cursor: default;
     min-width: 130px;
     z-index: 500;
     border:1px solid  rgb(201, 201, 201);
@@ -224,7 +239,6 @@ nav a:nth-child(n+5){
     background-color:white;
     padding: 30px;
     border-top: 0.5px solid rgb(201, 201, 201);
-    height:90px;
 }
 .footerInfo2_img{
     display: inline-block;
@@ -292,4 +306,32 @@ nav a:nth-child(n+5){
     width: 9px;
     height : 9px;
     border : 1.5px solid #e05247;
+}
+
+
+
+.loader {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border: 11px solid #ffe7e7;
+    border-radius: 50%;
+    border-top: 11px solid #e05247;
+
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
