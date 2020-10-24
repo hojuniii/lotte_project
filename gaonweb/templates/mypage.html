@@ -23,7 +23,7 @@
         {% if Box.status == "C" %}
         &nbsp;&nbsp;&nbsp;배송상태 : 배송완료 
         &nbsp;&nbsp;&nbsp; | 
-        &nbsp;&nbsp;&nbsp; 완료시간 : {{Box.completed_at|date:'Y년 m월 d일 H시i분'}} 
+        &nbsp;&nbsp;&nbsp; 완료시간 : {{Box.completed_at}} 
         {% else %}
         &nbsp;&nbsp;&nbsp;배송상태 : 배송중
         {% endif%}
