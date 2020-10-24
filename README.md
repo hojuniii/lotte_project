@@ -12,14 +12,14 @@
 
 #### ✅ 서비스 소개영상 :[link](https://www.youtube.com/watch?v=jCzHUarGsbA&feature=youtu.be) 👈🏻
 
+#### ✅ 가온 앱 git repository :[link](http://ec2-3-129-71-199.us-east-2.compute.amazonaws.com:8000) 👈🏻
+
 ![screenshot](./screenshot/이미지1.png)
 ![screenshot](./screenshot/이미지2.png)
 ![screenshot](./screenshot/이미지3.png)
 
 
 ## 추가정보
-
-#### ℹ️ 가온 앱 git repository [link](https://github.com/hojuniii/lotte_gaon_app) 👈🏻
 
 #### ℹ️ 앱의 QR스캔을 통해 원터치로 택배를 접수하고, 택배정보/ 배송내역을 확인 수 있습니다.
 
