@@ -12,7 +12,7 @@
 
 #### ✅ 서비스 소개영상 :[link](https://www.youtube.com/watch?v=jCzHUarGsbA&feature=youtu.be) 👈🏻
 
-#### ✅ 가온 앱 git repository :[link](http://ec2-3-129-71-199.us-east-2.compute.amazonaws.com:8000) 👈🏻
+#### ✅ 가온 앱 git repository :[link](https://github.com/hojuniii/lotte_gaon_app) 👈🏻
 
 ![screenshot](./screenshot/이미지1.png)
 ![screenshot](./screenshot/이미지2.png)
