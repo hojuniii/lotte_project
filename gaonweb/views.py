@@ -22,6 +22,7 @@ customer={
     7 : (" 921동 801호","호고객","01062346234"),
     8 : (" 104동 105호","하고객","01072347234"),
     9 : (" 702동 206호","한고객","01082348234"),
+    10 : (" 802동 403호","한고객","01013448734"),
     11 : (" 741동 303호","여고객","01092349234"),
     12 : (" 134동 404호","남고객","01013341334"),
     13 : (" 128동 306호","조고객","01014341434"),
@@ -212,20 +213,22 @@ def place_toss(request):
     return redirect('members')
 
 def boxqrcode(request):
-    Boxes = Box.objects.filter(status='W').order_by('-id')
+    profile = get_object_or_404(Profile,user = request.user)
+    Boxes = Box.objects.filter(status='W',customer_location__icontains=profile.service_place).order_by('-id')
     if (Boxes.count() < 1):
         for i in range(0,5):
             random_num = str(randint(1000000000,9999999999))
-            random_num2 = (randint(1,21))
+            random_num2 = randint(1,21)
             img = qrcode.make(random_num)
             img.save('media/images/qr'+random_num+'.png')
             global box_num
             box_num = random_num
             random_customerNum = randint(1,20)
+            
             newbox=Box()
             newbox.qr_img='images/qr'+random_num+'.png'
             newbox.box_number=random_num
-            location = place_value.get(random_num2)
+            location = profile.service_place
             location = location+customer.get(random_customerNum)[0]
             newbox.customer_location = location
             newbox.customer_name= customer.get(random_customerNum)[1]
