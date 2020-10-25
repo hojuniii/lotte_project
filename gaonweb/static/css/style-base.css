@@ -132,19 +132,14 @@ nav a:nth-child(n+5){
     position: static;
     top:3750px;
     width: 100%;
-    overflow: hidden;
 }
-
-
-
-
 .footerInfo1{
     background-color:white;
     padding: 20px;
     padding-left:100px;
     border-top: 0.5px solid rgb(201, 201, 201);
     height:20px;
-    width:2000px;
+    width:100%;
 }
 .footerInfo1 a{
     color:black;

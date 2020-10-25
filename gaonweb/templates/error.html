@@ -11,6 +11,10 @@
 <script>    
     alert('65세 미만은 가입하실 수 없습니다.');
 </script>
+{% elif errorname == "ageerror"%}
+<script>
+    alert('유효한 생년월일을 입력해주세요.');
+</script>
 {% endif %}
 <script>
 history.back();
