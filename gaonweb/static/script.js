@@ -78,11 +78,6 @@ function window_size() {
         $('.members_card div').css('width',"60%");
     }
     if (width_size >= 800) {
-        //base.html
-        $('.footerInfo1').css('display','block');
-        $('.footerInfo2').css('text-align','left');
-        $('.footerInfo2_img').css({'display':'inline-block', 'margin':'10px 40px 20px 80px'});
-        $('.footerInfo2_font').css({'font-size':'14px', 'margin' : '0px'});
         
         //home.html
         $('.youtube1').css('width','88%');
@@ -107,12 +102,6 @@ function window_size() {
         $('.place_card_container').css('text-align',"left");
     }
     else {
-        //base.html
-        $('.footerInfo1').css('display','none');
-        $('.footerInfo2').css('text-align','center');
-        $('.footerInfo2_img').css({'display':'block', 'margin':'0 auto'});
-        $('.footerInfo2_font').css({'font-size':'10px', 'margin' : '20px 0px'});
-
         //home.html
         $('.youtube1').css('width','100%');
         $('.text-fitter0').css('font-size','18px');
@@ -141,6 +130,11 @@ function window_size() {
         $('.nav-link').css('display','inline');
         $('.nav-button').css('display','none');
         $('.background-nav').css('display','none');
+        $('.footerInfo1').css('display','block');
+        $('.footerInfo2').css('text-align','left');
+        $('.footerInfo2_img').css({'display':'inline-block', 'margin':'10px 40px 20px 80px'});
+        $('.footerInfo2_font').css({'font-size':'14px', 'margin' : '0px'});
+        
 
         //home.html
         $('.content2-card-text').css({'font-size':'19px','left':'70px'});
@@ -150,6 +144,11 @@ function window_size() {
         //base.html
         $('.nav-link').css('display','none');
         $('.nav-button').css('display','inline');
+        $('.footerInfo1').css('display','none');
+        $('.footerInfo2').css('text-align','center');
+        $('.footerInfo2_img').css({'display':'block', 'margin':'0 auto'});
+        $('.footerInfo2_font').css({'font-size':'10px', 'margin' : '20px 0px'});
+
 
         //home.html
         $('.content2-card-text').css({'font-size':'13px','left':'60px'});
