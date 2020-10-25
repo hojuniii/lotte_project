@@ -145,32 +145,39 @@ def signup(request):
         age = year-int(request.POST['birth'])//10000
         valid = True
         valid2 = True
+        valid3 = True
         if age < 65:
             valid2 = False
+        if age > 120:
+            valid3 = False          
         for i in uservalid:
             if i.username == username:
                 valid=False
         if valid == True:
             if valid2 == True:
-                user = User.objects.create_user(username,"",password)
-                profile = get_object_or_404(Profile,user_pk=user.id)
-                # fileName = user.id + '_profile.png'
-                profile.user = user
-                profile.nickname =request.POST['nickname']
-                profile.birth = request.POST['birth']
-                profile.age = age
-                # image.save(str(user.id) + '_profile.png')
-                if 'profile_image' not in request.FILES:
-                    pass
-                else:
-                    profile.profile_image =request.FILES['profile_image']
-                profile.service_place=request.POST['service_place']
-                profile.user_pk=user.id
+                if valid3 == True:
+                    user = User.objects.create_user(username,"",password)
+                    profile = get_object_or_404(Profile,user_pk=user.id)
+                    # fileName = user.id + '_profile.png'
+                    profile.user = user
+                    profile.nickname =request.POST['nickname']
+                    profile.birth = request.POST['birth']
+                    profile.age = age
+                    # image.save(str(user.id) + '_profile.png')
+                    if 'profile_image' not in request.FILES:
+                        pass
+                    else:
+                        profile.profile_image =request.FILES['profile_image']
+                    profile.service_place=request.POST['service_place']
+                    profile.user_pk=user.id
 
-                user.save()
-            
-                login(request, user)
-                return redirect("home")
+                    user.save()
+                
+                    login(request, user)
+                    return redirect("home")
+                else :
+                    errorname= "ageerror2"
+                    return render(request,'error.html',{'errorname':errorname})
             else :
                 errorname= "ageerror"
                 return render(request,'error.html',{'errorname':errorname})
